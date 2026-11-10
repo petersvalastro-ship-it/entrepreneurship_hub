@@ -1,0 +1,1 @@
+CREATE POLICY "Anyone reads lesson PDFs" ON storage.objects FOR SELECT TO anon, authenticated USING (bucket_id = 'lesson-pdfs');
