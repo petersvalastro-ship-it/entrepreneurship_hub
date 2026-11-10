@@ -9,7 +9,7 @@ export async function authenticateCronRequest(
     return new Response('Server configuration error', { status: 500 })
   }
 
-  const match = /^Bearer([^\s,]+)$/.exec(
+  const match = /^Bearer ([^\s,]+)$/.exec(
     request.headers.get('authorization') ?? '',
   )
   const token = match?.[1]
