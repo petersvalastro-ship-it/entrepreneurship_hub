@@ -1,0 +1,28 @@
+,
+      ],
+      questions: [
+        'How did curiosity shape Mikaila’s entrepreneurial path?',
+        'What resources and relationships helped her begin?',
+        'How did her mission strengthen the value customers saw in the product?',
+      ],
+    },
+  },
+  {
+    id: 'p2-1',
+    chapterId: 'ch2',
+    title: 'Reading 2.A — Needs, Wants & Pain Points',
+    minutes: 9,
+    bigQuestion: 'How can observation reveal an opportunity worth solving?',
+    paragraphs: [
+      'Entrepreneurs study what people need, what they want, and what gets in their way. A need is connected to basic functioning, safety, access, learning, health, or required tasks. A want may be connected to comfort, style, identity, enjoyment, convenience, or status. Many successful products serve both at the same time.',
+      'A student may need a backpack that carries books safely, but they may want one that matches their style. A family may need dinner, but they may want dinner that is fast, affordable, and healthy. A teacher may need students to turn in work, but may want a smoother system that reduces reminders. Understanding motivation helps an entrepreneur design and explain the solution.',
+      'Pain Points are the specific frustrations, delays, costs, risks, or disappointments people experience. Pain Points can be financial, such as something being too expensive; functional, such as something breaking; emotional, such as embarrassment; or time-based, such as a process taking too long. The more specific the pain point, the easier it is to design a useful test.',
+      'Observation is powerful because people do not always explain their routines accurately. A customer might say a product is “fine” while still creating workarounds every day. Entrepreneurs watch where people pause, repeat steps, ask for help, abandon a task, or create homemade fixes. Those moments can reveal an unmet need.',
+      'The entrepreneurial mindset asks students to suspend judgment. Instead of laughing at a workaround or immediately selling an idea, the entrepreneur asks, “What job is this person trying to get done?” and “What makes the current option frustrating?” This moves the focus from the product the entrepreneur wants to build toward the value the customer actually needs.',
+      'A strong problem statement includes the customer, the situation, the pain, and the impact: “Seventh graders who carry sports gear after school cannot fit everything in one bag, so they leave materials behind or arrive late.” That sentence gives a team something concrete to research, brainstorm, and test.',
+    ],
+    keyIdea: 'Observation turns a broad complaint into a specific Pain Point connected to a real Need, Want, or customer motivation.',
+    mindsetPractice: [
+      'Empathy: Watch a routine without interrupting and record where users struggle.',
+      'Problem framing: Write one problem statement using customer, situation, pain, and impact.',
+      'Curiosity: Separate what customers say from what they act
