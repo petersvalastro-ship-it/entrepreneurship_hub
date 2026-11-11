@@ -1,0 +1,33 @@
+ence is not an insult; it is a gift that saves time and money. A pivot is a disciplined change based on learning.',
+    ],
+    keyIdea: 'Strong entrepreneurs combine Primary Research, Secondary Research, and competitor analysis, then let evidence guide whether to continue, improve, or pivot.',
+    mindsetPractice: [
+      'Curiosity: Ask one interview question that begins with “Tell me about the last time…”.',
+      'Integrity: Name one piece of evidence that would change your mind.',
+      'Resilience: Treat a pivot as progress, not embarrassment.',
+    ],
+    caseStudy: {
+      name: 'The School Snack Cart Pivot',
+      subtitle: 'Free samples and surveys change the plan',
+      body: [
+        'The snack cart team tested organic dried kale chips before purchasing a large supply. Free samples and short surveys showed that most classmates did not enjoy the taste enough to buy them regularly. Many students preferred baked apple crisps and fruit smoothies. The evidence challenged the original plan, but it arrived early enough for the team to adapt.',
+        'The team’s pivot was an example of resilience and customer focus. They did not simply abandon entrepreneurship because the first idea was unpopular. They used the feedback to revise the offering. The better question became, “How can we provide a healthier snack students actually want?” rather than, “How can we force students to like kale chips?”',
+        'Because the team tested before spending heavily, it protected its budget and learned more about customer preferences. That is the value of research: it turns uncertainty into smarter action.',
+      ],
+      questions: [
+        'Which Primary Research methods did the team use?',
+        'What evidence caused the pivot?',
+        'How did the pivot show entrepreneurial resilience rather than failure?',
+      ],
+    },
+  },
+  {
+    id: 'p4-1',
+    chapterId: 'ch4',
+    title: 'Reading 4.A — Goods, Services & Bootstrapping',
+    minutes: 9,
+    bigQuestion: 'How can an entrepreneur begin with resources already available?',
+    paragraphs: [
+      'Entrepreneurial offerings usually include Goods, Services, or a combination of both. Goods are tangible items customers can hold, use, store, or consume. Services are actions, skills, or experiences performed for a customer. A custom sticker business sells a good. A tutoring business sells a service. A birthday party photography package might combine a service with digital photo goods.',
+      'Knowing the difference helps an entrepreneur plan. Goods often require materials, inventory, packaging, storage, and quality control. Services often require scheduling, communication, preparation, and consistent delivery. Both can create value, and both can fail if the entrepreneur misunderstands the customer need.',
+      'Bootstrapping means beginning with resources already available instead of waiting for large funding. Student entrepreneurs can bootstrap with free design tools, borrowed equipment with per
