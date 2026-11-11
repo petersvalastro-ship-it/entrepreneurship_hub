@@ -1,0 +1,51 @@
+name: Assemble large files
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tmp/rebus.part*'
+      - '.github/workflows/assemble-parts.yml'
+permissions:
+  contents: write
+jobs:
+  assemble-rebus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Concatenate rebus parts
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          part0 = Path('src/content/rebus-studio.html').read_text()[:12000]
+          rest = [
+            'tmp/rebus.part1',
+            'tmp/rebus.part2_0',
+            'tmp/rebus.part2_1',
+            'tmp/rebus.part2_2',
+            'tmp/rebus.part2_3',
+            'tmp/rebus.part3',
+          ]
+          missing = [p for p in rest if not Path(p).exists()]
+          if missing:
+            raise SystemExit(f'missing parts: {missing}')
+          out = part0 + ''.join(Path(p).read_text() for p in rest)
+          dest = Path('src/content/rebus-studio.html')
+          if dest.read_text() == out:
+            print('rebus already assembled')
+          else:
+            dest.write_text(out)
+            print(f'wrote {dest} ({len(out)} chars)')
+          PY
+      - name: Commit assembled rebus
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/rebus-studio.html
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Assemble src/content/rebus-studio.html from tmp parts"
+            git push
+          fi
