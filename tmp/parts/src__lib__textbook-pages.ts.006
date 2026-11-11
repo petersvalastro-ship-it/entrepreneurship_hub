@@ -1,0 +1,19 @@
+ ambitious, but it usually makes the idea weaker. Different customers have different budgets, schedules, habits, values, and reasons for caring. If a team tries to serve everyone, it may design something that feels average to all and essential to no one.',
+      'A Target Audience is a specific group of people the entrepreneur wants to understand and serve. The group should be clear enough that the team can find them, ask questions, observe routines, and make decisions. “Students” is broad. “Seventh and eighth graders who stay after school for clubs and need a quick snack before pickup” is much more useful.',
+      'Three types of details help define the audience. Demographics describe measurable traits such as age, grade, family role, or income range. Geographics describe where people live, study, shop, or move through the day. Psychographics describe interests, values, attitudes, motivations, and habits. Psychographics are especially important because people with the same age or grade may still make very different choices.',
+      'A Customer Persona is a realistic profile that represents a segment of the target audience. The textbook’s example, Tech-Savvy Taylor, is a 13-year-old 8th grader who enjoys mobile gaming, short-form video, and personalized gear. A persona helps the team imagine decisions through the customer’s eyes, but it is still a hypothesis. It must be tested through research.',
+      'The entrepreneurial mindset here is empathy plus discipline. Empathy helps students care about the customer’s real life. Discipline prevents them from inventing details just because they sound convenient. A persona should be updated when interviews or surveys reveal new evidence.',
+      'Once the audience is clear, many business decisions become easier. Product features can match the customer’s routine. Price can reflect the customer’s budget and alternatives. Promotion can appear where the customer already pays attention. Place can match when and where the customer is ready to act.',
+    ],
+    keyIdea: 'A clear Target Audience and tested Customer Persona help entrepreneurs make better decisions about product, price, place, and promotion.',
+    mindsetPractice: [
+      'Empathy: Build a persona from actual observations, not stereotypes.',
+      'Discipline: Mark each persona detail as evidence, assumption, or unknown.',
+      'Customer focus: Use the persona to decide what feature should be removed, not only what to add.',
+    ],
+    caseStudy: {
+      name: 'The School Snack Cart Pivot',
+      subtitle: 'The original customer assumption',
+      body: [
+        'A group of seventh graders planned a healthy snack cart built around organic dried kale chips. Their first customer assumption was simple: classmates would want a healthy snack option. That assumption sounded reasonable, but it was still untested. The team needed to learn whether students wanted that specific snack, at that price, during that part of the school day.',
+        'By focusin
