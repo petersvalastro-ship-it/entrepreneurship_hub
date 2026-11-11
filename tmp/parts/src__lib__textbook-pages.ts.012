@@ -1,0 +1,33 @@
+ounder choices.',
+    ],
+    keyIdea: 'Entrepreneurs classify costs, calculate revenue, subtract total costs, and use Unit Contribution to understand whether the venture can work.',
+    mindsetPractice: [
+      'Responsibility: Track every cost, even small ones that are easy to ignore.',
+      'Analysis: Explain the difference between high revenue and high profit.',
+      'Problem solving: Name one way to improve profit without lowering quality or misleading customers.',
+    ],
+    caseStudy: {
+      name: "Alex's Lawn Care",
+      subtitle: 'Startup and Variable Costs',
+      body: [
+        'Alex starts a lawn care service with $120 for a used lawn mower and $15 for safety goggles and gloves. Those $135 are Startup Costs because they are needed before the service can operate. Each lawn also uses about $3 in gasoline and $1 in lawn bags, making the Variable Cost $4 per lawn.',
+        'Alex charges $25 per lawn. The Unit Contribution is $25 minus $4, or $21 per lawn before considering other expenses. If Alex mows four lawns, revenue is $100, but profit is not $100 because variable costs and startup costs still matter. The numbers help Alex understand how many jobs are needed before the venture truly pays back the initial investment.',
+        'The case also shows why safety and professionalism are part of entrepreneurship. Goggles, gloves, reliability, and clear communication all support value. Cutting important costs may create risk or reduce trust.',
+      ],
+      questions: [
+        'Which of Alex’s costs are Startup, Fixed, or Variable?',
+        'What is Alex’s Revenue after mowing four lawns, and why is it not the same as Profit?',
+        'What non-obvious costs or responsibilities might Alex need to track next?',
+      ],
+    },
+  },
+  {
+    id: 'p5-2',
+    chapterId: 'ch5',
+    title: 'Reading 5.B — Pricing & Break-Even',
+    minutes: 10,
+    bigQuestion: 'How do price and Unit Contribution determine Break-Even?',
+    paragraphs: [
+      'Pricing is one of the most important decisions an entrepreneur makes because it affects customers, costs, brand perception, and profit. A price that is too high may push customers toward alternatives. A price that is too low may make the business unsustainable or signal lower quality. Entrepreneurs use evidence, not guesses, to choose a responsible price.',
+      'Cost-Plus Pricing starts with the cost of producing or delivering the offering and adds a planned markup. This method helps make sure the price covers known costs, but it does not automatically prove that customers will pay. Competitive Pricing compares similar alternatives. This is useful only when the comparison is fair: same audience, similar quality, similar convenience, and similar value.',
+      'Value-Based Pricing considers the value customers believe they receive. A convenient service during a stressful moment may be worth more than the same service at an easy time. A personalized product may be worth more to a customer who cares a
