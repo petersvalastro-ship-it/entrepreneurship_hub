@@ -1,1 +1,160 @@
-@/tmp/remain-push/rebus.content
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrepreneurial Rebus Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{--purple:#64219a;--pink:#ce196a;--orange:#ef542f;--ink:#242424;--cream:#fffaf3;--line:#e8dfe8}
+    *{box-sizing:border-box}
+    body{margin:0;width:100%;font-family:"DM Sans",sans-serif;color:var(--ink)}
+    .app-shell{width:100%;min-height:100%;padding:clamp(12px,3vw,38px)}
+    .sheet{width:100%;max-width:1050px;margin:auto;background:#fff;border:1px solid #efe5e6;border-radius:25px;box-shadow:0 20px 65px #53246b13;overflow:hidden}
+    .hero{position:relative;overflow:hidden;background:#64219a;color:white;padding:clamp(25px,5vw,56px)}
+    .hero:before{content:"";position:absolute;width:270px;height:270px;border:2px dashed #ffffff60;border-radius:50%;right:-90px;top:-110px}
+    .hero:after{content:"✦";position:absolute;right:28px;bottom:8px;color:#ffcb45;font-size:75px;transform:rotate(-16deg)}
+    .hero-grid{display:grid;grid-template-columns:1.3fr .8fr;align-items:center;gap:30px;position:relative;z-index:1}
+    .hero h1{line-height:1.08;letter-spacing:-.045em;max-width:620px}
+    .hero-image-wrap{border:7px solid #fff;border-radius:22px;overflow:hidden;transform:rotate(3deg);box-shadow:15px 15px 0 #fbbc36;aspect-ratio:4/3;background:#e9d6f3}
+    .hero-image-wrap img{width:100%;height:100%;object-fit:cover}
+    .hero-intro{max-width:750px;line-height:1.7}
+    .body-content{padding:clamp(21px,5vw,54px)}
+    .eyebrow{letter-spacing:.1em;text-transform:uppercase;font-size:.76rem;font-weight:800}
+    .info-card{border-radius:16px;padding:17px 19px;border:1px solid #e9ddea;background:#faf5fd}
+    .info-card:nth-child(2){background:#fff0f6;border-color:#f4d8e5}
+    .info-card:nth-child(3){background:#fff3e9;border-color:#f7dfcf}
+    .info-card strong{display:block;font-size:.76rem;letter-spacing:.08em;margin-bottom:5px}
+    .section{border-top:2px dashed var(--line);padding-top:35px;margin-top:42px;scroll-margin-top:20px}
+    .section-title{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+    .icon-badge{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:13px;flex:none;background:#f3e7fc;color:var(--purple)}
+    .icon-badge.pink{background:#ffe4ef;color:var(--pink)}
+    .icon-badge.orange{background:#fff0df;color:var(--orange)}
+    .icon-badge svg{width:23px;height:23px}
+    h2{font-weight:800;letter-spacing:-.025em;line-height:1.2}
+    h3{font-weight:800}
+    .prompt{font-weight:700;display:block;line-height:1.5;margin-bottom:9px}
+    .field{width:100%;border:2px solid #ded2e1;border-radius:12px;background:#fff;color:var(--ink);padding:12px 14px;line-height:1.5;transition:border-color .2s,box-shadow .2s}
+    .field:focus{border-color:var(--purple);box-shadow:0 0 0 4px #64219a16;outline:none}
+    :is(button,summary,a,input[type=checkbox],input[type=radio]):focus-visible{outline:3px solid #a764d1;outline-offset:3px}
+    textarea.field{resize:vertical;min-height:112px}
+    .rebus-space{font-family:"Space Mono",monospace;white-space:pre;min-height:205px!important;overflow:auto;tab-size:4;background-image:radial-gradient(#d9c8e1 1px,transparent 1px);background-size:20px 20px}
+    .panel{border-radius:18px;padding:clamp(17px,3vw,26px);background:#faf5fd;border:1px solid #eddef5}
+    .panel.pink{background:#fff3f8;border-color:#f8dbe9}
+    .panel.orange{background:#fff6ec;border-color:#f8e4ce}
+    .puzzle{border:2px solid #d9b7eb;border-radius:18px;padding:clamp(16px,3vw,24px);background:#fcf8ff}
+    .puzzle.pink{border-color:#f4bbd3;background:#fff8fb}
+    .puzzle.orange{border-color:#f5c6a7;background:#fffaf5}
+    .mini-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.94rem;overflow:hidden;border-radius:14px;border:1px solid #e8dbe9}
+    .mini-table th{background:#64219a;color:white;text-align:left;padding:13px}
+    .mini-table td{padding:13px;border-top:1px solid #eee4ed;vertical-align:top}
+    .mini-table tbody tr:nth-child(even){background:#faf6fc}
+    .step{display:flex;align-items:start;gap:16px;padding:14px 0;border-bottom:1px solid #eee4ed}
+    .step-time{color:var(--purple);font-weight:800;flex:0 0 125px}
+    .choice-row{display:flex;flex-wrap:wrap;gap:19px;padding:7px 0}
+    .choice-row label,.check-row{display:flex;align-items:flex-start;gap:9px;cursor:pointer}
+    input[type=radio],input[type=checkbox]{accent-color:var(--purple);margin-top:5px;flex:none}
+    .case-copy p{margin:0 0 17px;line-height:1.75}
+    .case-copy strong{color:var(--purple)}
+    details{border:2px solid #e7d8ed;border-radius:15px;background:#faf6fc}
+    summary{cursor:pointer;padding:17px 19px;font-weight:800}
+    .submit{background:#64219a;color:#fff;border-radius:12px;padding:15px 25px;font-weight:800;cursor:pointer;transition:transform .2s,background .2s;box-shadow:0 6px 0 #42106b}
+    .submit:hover:not(:disabled){background:#52147f;transform:translateY(-2px)}
+    .submit:disabled{opacity:.65;cursor:wait}
+    .print-btn{background:#fff;color:#64219a;border:2px solid #64219a;border-radius:12px;padding:13px 23px;font-weight:800;cursor:pointer;transition:transform .2s,background .2s;display:inline-flex;align-items:center;gap:9px}
+    .print-btn:hover{background:#f6effa;transform:translateY(-2px)}
+    @media print{.print-btn,.submit,#form-message,.hero-image-wrap{display:none!important}}
+    .message{border-radius:12px;padding:14px 16px;font-weight:700}
+    .message.error{background:#fff0ed;color:#902f19}
+    .message.success{background:#eef8f0;color:#176039}
+    .reveal{animation:rise .55s both}
+    @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:700px){.hero-grid{grid-template-columns:1fr}.hero-image-wrap{max-width:390px;margin:0 10px 12px 0}.step{display:block}.step-time{display:block;margin-bottom:5px}.mini-table{font-size:.8rem}.mini-table th,.mini-table td{padding:9px}}
+    @media(prefers-reduced-motion:reduce){.reveal{animation:none}*{scroll-behavior:auto!important}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  
+  
+  
+ </head>
+ <body data-template-id="__page-root" class="w-full">
+  <div class="app-shell w-full">
+   <main class="sheet">
+    <header data-template-id="hero-panel" class="canva-header hero">
+     <div class="hero-grid">
+      <div class="reveal">
+       <p data-template-id="course-line" style="font-size:15.9995px;font-weight:700;color:rgb(255, 255, 255)" class="canva-text eyebrow mb-4">MS ENTREPRENEURSHIP  |  TUESDAY, OCTOBER 20, 2026</p>
+       <h1 data-template-id="page-title" style="font-size:41.9988px;font-weight:700;color:rgb(255, 255, 255)" class="canva-text font-extrabold">Entrepreneurial Rebus Studio</h1>
+       <p data-template-id="page-subtitle" style="font-size:19.9994px;font-weight:400;color:rgb(255, 220, 121)" class="canva-text mt-5 font-semibold">Customer Insight · Clear Communication · Iteration</p>
+      </div>
+      <div class="hero-image-wrap reveal">
+       <img data-template-id="hero-image" src="https://images.pexels.com/photos/13199689/pexels-photo-13199689.jpeg" alt="Hand holding a light bulb in front of colorful sticky notes on a monitor, symbolizing brainstorming and innovation" class="canva-image" loading="lazy">
+      </div>
+     </div>
+    </header>
+    <div class="body-content">
+     <p data-template-id="page-intro" style="font-size:15.9995px;font-weight:400;color:rgb(36, 36, 36)" class="canva-text hero-intro">Study how Gymshark used firsthand customer insight to shape an early product. Then create, test, and improve three visual word puzzles that communicate entrepreneurial ideas without giving the answer away.</p>
+     <div class="grid sm:grid-cols-3 gap-3 mt-6">
+      <div data-template-id="date-card" class="canva-card info-card">
+       <strong data-template-id="date-label" style="font-size:15.9995px;font-weight:700;color:rgb(100, 33, 154)" class="canva-text">DATE</strong><span data-template-id="date-value" style="font-size:15.9995px;font-weight:400;color:rgb(36, 36, 36)" class="canva-text">Tuesday, October 20, 2026</span>
+      </div>
+      <div data-template-id="duration-card" class="canva-card info-card">
+       <strong data-template-id="duration-label" style="font-size:15.9995px;font-weight:700;color:rgb(164, 22, 86)" class="canva-text">CLASS TIME</strong><span data-template-id="duration-value" style="font-size:15.9995px;font-weight:400;color:rgb(36, 36, 36)" class="canva-text">60 minutes</span>
+      </div>
+      <div data-template-id="product-card" class="canva-card info-card">
+       <strong data-template-id="product-label" style="font-size:15.9995px;font-weight:700;color:rgb(180, 61, 32)" class="canva-text">FINAL PRODUCT</strong><span data-template-id="product-value" style="font-size:15.9995px;font-weight:400;color:rgb(36, 36, 36)" class="canva-text">3 rebus puzzles plus answer key</span>
+      </div>
+     </div>
+     <div class="flex flex-wrap gap-3 mt-6 print-row"><button type="button" class="print-btn">🖨️ Print / Save as PDF</button></div>
+     <form id="assignment-form" novalidate>
+      <div class="mt-8">
+       <label data-template-id="student-name-label" style="font-size:15.9995px;font-weight:700;color:rgb(36, 36, 36)" class="canva-text prompt" for="student_name">Student name</label><input id="student_name" name="student_name" class="field" autocomplete="name" maxlength="120" required>
+      </div>
+      <section class="section" aria-labelledby="qotd-heading">
+       <div class="section-title">
+        <span class="icon-badge pink" aria-hidden="true"><i data-lucide="lightbulb"></i></span>
+        <h2 id="qotd-heading" data-template-id="qotd-heading" style="font-size:23.9993px;font-weight:700;color:rgb(23, 23, 23)" class="canva-text">Question of the Day</h2>
+       </div>
+       <div data-template-id="question-panel" class="canva-panel panel pink">
+        <label data-template-id="qotd-prompt" style="font-size:15.9995px;font-weight:700;color:rgb(36, 36, 36)" class="canva-text prompt" for="qotd_response">If customers cannot quickly understand the value of an idea, what should an entrepreneur change first: the idea, the message, or the test? Explain your choice.</label><textarea id="qotd_response" name="qotd_response" class="field" required></textarea>
+       </div>
+      </section>
+      <section class="section" aria-labelledby="plan-heading">
+       <div class="section-title">
+        <span class="icon-badge orange" aria-hidden="true"><i data-lucide="calendar-days"></i></span>
+        <h2 id="plan-heading" data-template-id="plan-heading" style="font-size:23.9993px;font-weight:700;color:rgb(23, 23, 23)" class="canva-text">Plan for Today</h2>
+       </div>
+       <div class="overflow-x-auto">
+        <table class="mini-table">
+         <thead>
+          <tr>
+           <th scope="col">Activity</th>
+           <th scope="col">Minutes</th>
+           <th scope="col">What you will do</th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>Question of the Day</td>
+           <td>5</td>
+           <td>Choose a position and explain it.</td>
+          </tr>
+          <tr>
+           <td>Case Study</td>
+           <td>12</td>
+           <td>Read the Gymshark case and respond with evidence.</td>
+          </tr>
+          <tr>
+           <td>Rebus Studio</td>
+           <td>40</td>
+           <td>Create three puzzles, peer test, and revise.</td>
+          </tr>
+          <tr>
+           <td>Exit Ticket</td>
+           <td>3</td>
+           <td>Name what the test revealed and your next move.</td>
+          </tr>
+         </tbody>
+        </table>
+ 
