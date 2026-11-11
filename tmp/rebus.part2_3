@@ -1,0 +1,17 @@
+s="section" aria-labelledby="finish-heading">
+       <div class="section-title">
+        <span class="icon-badge" aria-hidden="true"><i data-lucide="circle-check-big"></i></span>
+        <h2 id="finish-heading" data-template-id="finish-heading" style="font-size:23.9993px;font-weight:700;color:rgb(23, 23, 23)" class="canva-text">Final Check</h2>
+       </div>
+       <div data-template-id="check-panel" class="canva-panel panel space-y-3 mb-7"><label class="check-row"><input type="checkbox"><span data-template-id="check-one" style="font-size:15.9995px;font-weight:400;color:rgb(36, 36, 36)" class="canva-text">I created three original puzzles in three different categories.</span></label> <label class="check-row"><input type="checkbox"><span data-template-id="check-two" style="font-size:15.9995px;font-weight:400;color:rgb(36, 36, 36)" class="canva-text">I included an answer and key-clue explanation for each puzzle.</span></label> <label class="check-row"><input id="revision-check" type="checkbox"><span data-template-id="check-three" style="font-size:15.9995px;font-weight:400;color:rgb(36, 36, 36)" class="canva-text">I recorded peer-test evidence and revised at least one puzzle.</span></label> <label class="check-row"><input type="checkbox"><span data-template-id="check-four" style="font-size:15.9995px;font-weight:400;color:rgb(36, 36, 36)" class="canva-text">My work is readable, respectful, and ready for classmates to solve.</span></label>
+       </div>
+       <h3 data-template-id="exit-heading" style="font-size:18.9995px;font-weight:700;color:rgb(23, 23, 23)" class="canva-text mb-4">Exit Ticket</h3>
+       <div class="space-y-5">
+        <div>
+         <label data-template-id="exit-one-label" style="font-size:15.9995px;font-weight:700;color:rgb(36, 36, 36)" class="canva-text prompt" for="exit_ticket_1">1. What did your peer’s first attempt reveal, and what revision did you make or plan to make?</label><textarea id="exit_ticket_1" name="exit_ticket_1" class="field" required></textarea>
+        </div>
+        <div>
+         <label data-template-id="exit-two-label" style="font-size:15.9995px;font-weight:700;color:rgb(36, 36, 36)" class="canva-text prompt" for="exit_ticket_2">2. Complete the sentence: Entrepreneurs learn by…</label><textarea id="exit_ticket_2" name="exit_ticket_2" class="field" required></textarea>
+        </div>
+       </div>
+       <p data-template-id="submit-note" style="font-size:15.9995px;font-weight:400;color:rgb(104, 99, 108)" class="canva-text mt-6 mb-4">Your answers save automatically in this browser. When you are finished, use the buttons below to download a copy of your work or save the assignment as a PDF to email to Pietro.</p><button id="submit-button" type="submit" class="submit canva-button"><span data-template-id="submit-label" style="font-size:15.9995px;font-weight:700;color:rgb(255, 255, 255)" class="canva-text">Submit assignment</span><span data-template-id="submitting-label" style="font-size:15.9995px;font-weight:700;
