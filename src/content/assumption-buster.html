@@ -234,4 +234,180 @@
         <h3 data-template-id="respondent-three" class="canva-text font-bold mb-3">Respondent 3</h3><label data-template-id="notes-three-label" class="canva-text prompt" for="notes-three">Most useful responses and notes *</label><textarea id="notes-three" name="notes_3" class="field" required></textarea><label data-template-id="surprise-three-label" class="canva-text prompt mt-3" for="surprise-three">Surprise or follow-up</label><input id="surprise-three" name="surprise_3" class="field">
        </div>
        <div class="research-card">
-        <h3 data-template-id="respondent-four" class="canva-text font-bold mb-3">Respondent 4</h3><label data-template-id="notes-four-label" class="canva-text prompt" for="notes-four">Most useful responses and notes *</label><textarea id="notes-four" name="notes_4" class="field" required></textarea><label data-template-id="surprise-four-label" class="canva-text prompt" for="surprise-four">Surprise
+        <h3 data-template-id="respondent-four" class="canva-text font-bold mb-3">Respondent 4</h3><label data-template-id="notes-four-label" class="canva-text prompt" for="notes-four">Most useful responses and notes *</label><textarea id="notes-four" name="notes_4" class="field" required></textarea><label data-template-id="surprise-four-label" class="canva-text prompt mt-3" for="surprise-four">Surprise or follow-up</label><input id="surprise-four" name="surprise_4" class="field">
+       </div>
+       <div class="research-card">
+        <h3 data-template-id="respondent-five" class="canva-text font-bold mb-3">Respondent 5 · optional</h3><label data-template-id="notes-five-label" class="canva-text prompt" for="notes-five">Most useful responses and notes</label><textarea id="notes-five" name="notes_5" class="field"></textarea><label data-template-id="surprise-five-label" class="canva-text prompt mt-3" for="surprise-five">Surprise or follow-up</label><input id="surprise-five" name="surprise_5" class="field">
+       </div>
+       <div class="research-card">
+        <h3 data-template-id="respondent-six" class="canva-text font-bold mb-3">Respondent 6 · optional</h3><label data-template-id="notes-six-label" class="canva-text prompt" for="notes-six">Most useful responses and notes</label><textarea id="notes-six" name="notes_6" class="field"></textarea><label data-template-id="surprise-six-label" class="canva-text prompt mt-3" for="surprise-six">Surprise or follow-up</label><input id="surprise-six" name="surprise_6" class="field">
+       </div>
+      </div>
+      <div class="mt-7 pt-6 border-t border-[#d9e2d7]">
+       <h3 data-template-id="research-check-heading" class="canva-text font-bold mb-4">Research Check</h3>
+       <div class="grid sm:grid-cols-2 gap-3"><label class="checkline"><input name="four_responses_check" type="checkbox"><span data-template-id="research-check-one" class="canva-text">We collected at least four responses.</span></label> <label class="checkline"><input name="actual_responses_check" type="checkbox"><span data-template-id="research-check-two" class="canva-text">We recorded actual ideas, behaviors, or preferences.</span></label> <label class="checkline"><input name="listening_check" type="checkbox"><span data-template-id="research-check-three" class="canva-text">We listened respectfully, including to disagreement.</span></label> <label class="checkline"><input name="pattern_check" type="checkbox"><span data-template-id="research-check-four" class="canva-text">We noticed a repeated response or meaningful difference.</span></label>
+       </div>
+      </div>
+     </section>
+     <section data-template-id="evidence-panel" class="canva-card paper p-6 sm:p-8">
+      <div class="section-head">
+       <span class="step" aria-hidden="true">6</span>
+       <h2 data-template-id="evidence-heading" class="canva-text">Evidence Huddle</h2>
+      </div>
+      <p data-template-id="evidence-intro" class="canva-text note">Review your notes before deciding. A small class survey may reveal patterns, but it does not prove what everyone thinks.</p>
+      <div class="grid md:grid-cols-2 gap-x-5">
+       <div class="block-field">
+        <label data-template-id="assumed-label" class="canva-text prompt" for="assumed">We assumed…</label><textarea id="assumed" name="assumed" class="field"></textarea>
+       </div>
+       <div class="block-field">
+        <label data-template-id="showed-label" class="canva-text prompt" for="showed">Our evidence showed… *</label><textarea id="showed" name="evidence_showed" class="field" required></textarea>
+       </div>
+       <div class="block-field">
+        <label data-template-id="pattern-label" class="canva-text prompt" for="pattern">The strongest pattern was…</label><textarea id="pattern" name="strongest_pattern" class="field"></textarea>
+       </div>
+       <div class="block-field">
+        <label data-template-id="more-label" class="canva-text prompt" for="more">We still need to learn…</label><textarea id="more" name="still_need_to_learn" class="field"></textarea>
+       </div>
+      </div>
+      <fieldset class="mt-6"><legend data-template-id="decision-label" class="canva-text prompt">Based on the evidence, we would… *</legend>
+       <div class="flex flex-wrap gap-3"><label class="choice"><input type="radio" name="decision" value="keep" required><span data-template-id="keep-option" class="canva-text">KEEP the idea</span></label> <label class="choice"><input type="radio" name="decision" value="change"><span data-template-id="change-option" class="canva-text">CHANGE part of it</span></label> <label class="choice"><input type="radio" name="decision" value="reject"><span data-template-id="reject-option" class="canva-text">REJECT part of it</span></label>
+       </div>
+      </fieldset>
+      <div class="block-field">
+       <label data-template-id="explanation-label" class="canva-text prompt" for="explanation">Explain what you would do and point to the evidence that supports it. *</label><textarea id="explanation" name="decision_explanation" class="field" required></textarea>
+      </div>
+     </section>
+     <section data-template-id="exit-panel" class="canva-card paper p-6 sm:p-8">
+      <div class="section-head">
+       <span class="step" aria-hidden="true">7</span>
+       <h2 data-template-id="exit-heading" class="canva-text">Individual Exit Ticket</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+       <div>
+        <label data-template-id="learning-label" class="canva-text prompt" for="learning">What did you learn that you could not have learned by guessing?</label><textarea id="learning" name="individual_learning" class="field"></textarea>
+       </div>
+       <div>
+        <label data-template-id="next-label" class="canva-text prompt" for="next-step">What should your team investigate or change next?</label><textarea id="next-step" name="next_step" class="field"></textarea>
+       </div>
+      </div>
+      <div class="mt-7 pt-6 border-t border-[#d9e2d7]">
+       <h3 data-template-id="final-check-heading" class="canva-text font-bold mb-4">Final Self-Check</h3>
+       <div class="space-y-3"><label class="checkline"><input name="conclusion_check" type="checkbox"><span data-template-id="final-check-one" class="canva-text">My conclusion uses evidence from the research.</span></label> <label class="checkline"><input name="assumption_check" type="checkbox"><span data-template-id="final-check-two" class="canva-text">I can name an assumption that was confirmed or challenged.</span></label> <label class="checkline"><input name="specific_step_check" type="checkbox"><span data-template-id="final-check-three" class="canva-text">My next step is specific and possible.</span></label>
+       </div>
+      </div>
+     </section>
+     <section data-template-id="submission-panel" class="canva-card rounded-[20px] p-6 sm:p-8">
+      <h2 data-template-id="submission-heading" class="canva-text mb-2">Ready to Turn It In?</h2>
+      <p data-template-id="submission-description" class="canva-text leading-relaxed mb-6">Review your answers, then download a copy of your work or save your completed assignment as a PDF. Fields marked * are required. Do not put classmates’ names in your research notes.</p>
+      <div class="flex flex-wrap items-center gap-4"><button id="submit-button" data-template-id="submit-button" type="submit" class="canva-button rounded-xl px-7 py-3 font-bold transition hover:brightness-110 focus-visible:outline">Submit assignment</button> <button id="print-button" data-template-id="print-button" type="button" class="canva-button rounded-xl px-5 py-3 border border-current font-bold">Print / Save as PDF</button> <button id="retry-button" data-template-id="retry-button" type="button" class="canva-button hidden rounded-xl px-5 py-3 border border-current font-bold">Retry connection</button> <span id="status" role="status" aria-live="polite" class="font-semibold"></span>
+      </div>
+     </section>
+    </form>
+   </main>
+   <footer class="max-w-5xl mx-auto px-6 pb-8">
+    <p data-template-id="footer-note" class="canva-text text-center">Listen first. Look for patterns. Let evidence improve your idea.</p>
+   </footer>
+  </div>
+  <script>
+window.dataSdk={K:'neia_assumption_buster',
+ all(){try{return JSON.parse(localStorage.getItem(this.K)||'[]')}catch(e){return[]}},
+ async init(h){this.h=h;setTimeout(()=>h.onDataChanged(this.all()),0);return{isOk:true}},
+ async create(r){try{const a=this.all();a.push(r);localStorage.setItem(this.K,JSON.stringify(a));this.h&&this.h.onDataChanged(a);return{isOk:true}}catch(e){return{isOk:false}}}};
+</script>
+  <script>
+    const form = document.getElementById('assignment-form');
+    const submitButton = document.getElementById('submit-button');
+    const printButton = document.getElementById('print-button');
+    const retryButton = document.getElementById('retry-button');
+    const statusEl = document.getElementById('status');
+    let ready = false;
+    let connectionTimer;
+
+    function status(message, error = false) {
+      statusEl.textContent = message;
+      statusEl.style.color = error ? '#9b372c' : '#245d46';
+    }
+
+    const handler = {
+      onDataChanged(data) {
+        clearTimeout(connectionTimer);
+        ready = true;
+        retryButton.classList.add('hidden');
+        // Other students' records are deliberately not rendered.
+      }
+    };
+
+    async function connect() {
+      ready = false;
+      retryButton.classList.add('hidden');
+      status('Connecting to your assignment sheet…');
+      clearTimeout(connectionTimer);
+      connectionTimer = setTimeout(() => {
+        if (!ready) {
+          status('Could not load the assignment sheet. Retry the connection.', true);
+          retryButton.classList.remove('hidden');
+        }
+      }, 8000);
+      try {
+        const result = await window.dataSdk.init(handler);
+        if (!result.isOk) {
+          clearTimeout(connectionTimer);
+          status('Could not connect to the assignment sheet. Retry the connection.', true);
+          retryButton.classList.remove('hidden');
+        }
+      } catch (_) {
+        clearTimeout(connectionTimer);
+        status('Could not connect to the assignment sheet. Retry the connection.', true);
+        retryButton.classList.remove('hidden');
+      }
+    }
+
+    retryButton.addEventListener('click', connect);
+    printButton.addEventListener('click', () => window.print());
+    connect();
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) {
+        status('Complete the required fields before submitting.', true);
+        return;
+      }
+      if (!ready) {
+        status('The assignment sheet is not connected yet. Retry the connection.', true);
+        retryButton.classList.remove('hidden');
+        return;
+      }
+
+      const values = new FormData(form);
+      const answers = {};
+      for (const [key, value] of values.entries()) {
+        if (key !== 'student_name' && key !== 'partner_name') answers[key] = typeof value === 'string' ? value.trim() : value;
+      }
+      const record = {
+        student_name: String(values.get('student_name') || '').trim(),
+        partner_name: String(values.get('partner_name') || '').trim(),
+        section: 'complete_assignment',
+        question_key: 'assumption_buster_v1',
+        response_text: JSON.stringify(answers),
+        submitted_at: new Date().toISOString()
+      };
+
+      submitButton.disabled = true;
+      status('Submitting your assignment…');
+      try {
+        const result = await window.dataSdk.create(record);
+        if (!result.isOk) {
+          status('Could not confirm the submission. Please check with your teacher before trying again.', true);
+        } else {
+          status('Saved! In the print window, choose "Save as PDF" as the destination, then email the PDF to pietro.valastro@neiacademy.org.');
+          setTimeout(()=>window.print(),300);
+        }
+      } catch (_) {
+        status('Could not confirm the submission. Please check with your teacher before trying again.', true);
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  </script>
+ </body>
+</html>
