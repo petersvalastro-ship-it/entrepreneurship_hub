@@ -1,0 +1,18 @@
+ mb-5">Build your puzzles with typed words and symbols. Spaces and line breaks are preserved. At the bottom of each design space, add “Key clue:” and explain the visual choice. Close the answer key before showing the puzzles to your partner.</p>
+       <div class="space-y-5">
+        <article data-template-id="puzzle1-card" class="canva-card puzzle">
+         <h3 data-template-id="puzzle1-heading" style="font-size:18.9995px;font-weight:700;color:rgb(100, 33, 154)" class="canva-text mb-3">Puzzle 1 · Mindset Trait</h3><label data-template-id="puzzle1-clue-label" style="font-size:15.9995px;font-weight:700;color:rgb(36, 36, 36)" class="canva-text prompt" for="puzzle1_clue">Design space and key clue · Ideas: resilience, curiosity, empathy, resourcefulness, adaptability</label><textarea id="puzzle1_clue" name="puzzle1_clue" class="field rebus-space" spellcheck="false" wrap="off" required></textarea>
+        </article>
+        <article data-template-id="puzzle2-card" class="canva-card puzzle pink">
+         <h3 data-template-id="puzzle2-heading" style="font-size:18.9995px;font-weight:700;color:rgb(206, 25, 106)" class="canva-text mb-3">Puzzle 2 · Entrepreneurial Action</h3><label data-template-id="puzzle2-clue-label" style="font-size:15.9995px;font-weight:700;color:rgb(36, 36, 36)" class="canva-text prompt" for="puzzle2_clue">Design space and key clue · Ideas: test and learn, pivot, customer first, create value, spot an opportunity</label><textarea id="puzzle2_clue" name="puzzle2_clue" class="field rebus-space" spellcheck="false" wrap="off" required></textarea>
+        </article>
+        <article data-template-id="puzzle3-card" class="canva-card puzzle orange">
+         <h3 data-template-id="puzzle3-heading" style="font-size:18.9995px;font-weight:700;color:rgb(180, 61, 32)" class="canva-text mb-3">Puzzle 3 · Course Concept or Original Phrase</h3><label data-template-id="puzzle3-clue-label" style="font-size:15.9995px;font-weight:700;color:rgb(36, 36, 36)" class="canva-text prompt" for="puzzle3_clue">Design space and key clue · Ideas: prototype, feedback loop, calculated risk, minimum viable product</label><textarea id="puzzle3_clue" name="puzzle3_clue" class="field rebus-space" spellcheck="false" wrap="off" required></textarea>
+        </article>
+       </div>
+       <details id="answer-key" class="mt-5">
+        <summary data-template-id="answer-summary" style="font-size:15.9995px;font-weight:700;color:rgb(100, 33, 154)" class="canva-text">Answer key · Open to write answers; close for peer testing</summary>
+        <div class="p-5 pt-0 space-y-4">
+         <p data-template-id="answer-instruction" style="font-size:15.9995px;font-weight:400;color:rgb(36, 36, 36)" class="canva-text">Keep these solutions covered while your partner solves the puzzles.</p>
+         <div>
+          <label data-template-id="puzzle1-answer-label" style="font-size:15.9995px;font-weight:700;color:rgb(36, 36, 36)" class="canva-text prompt" for="puzzle1_answer">Puzzle 1 answer · Min
