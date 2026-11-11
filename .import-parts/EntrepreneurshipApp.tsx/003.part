@@ -1,0 +1,271 @@
+if (activeTab.startsWith('lesson:')) map[activeTab] = `/learning/assignments/lesson/${activeTab.slice(7)}`; if (p.startsWith('/learning/assignments/lesson/')) map['__lesson'] = p; const target = map[activeTab] || '/'; if ((map[activeTab] || Object.values(map).includes(p)) && p !== target) window.history.replaceState(null, '', target); }, [activeTab, allAssignments.entries]);
+  const [textbookTarget, setTextbookTarget] = useState<string | null>(null);
+  const [showcaseOpen, setShowcaseOpen] = useState(false);
+  const [currentEntrepreneurIndex, setCurrentEntrepreneurIndex] = useState(0);
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+
+  // Student sign-in + saved LaunchPad progress
+  const auth = useStudentAuth();
+  
+  // Universal Design for Learning (UDL) Accessibility Settings
+  const [dyslexicFont, setDyslexicFont] = useState(false);
+  const [highContrast, setHighContrast] = useState(false);
+  const [textSize, setTextSize] = useState('normal');
+  const [speechSynthesisActive, setSpeechSynthesisActive] = useState(false);
+  const [currentSpeakingId, setCurrentSpeakingId] = useState(null);
+  const mainContentRef = useRef(null);
+
+  // Gamification & Progress State (saved on this device, and to the student's account when signed in)
+  const hub = useHubProgress(auth.user?.id, {
+    displayName: auth.displayName,
+    email: auth.user?.email ?? null,
+  });
+  const isTeacher = useIsTeacher(auth.user?.id);
+  const glossary = useGlossary();
+  const mastery = useMastery(auth.user?.id, { onEarnXp: (amount) => hub.setXp((current) => current + amount) });
+  const { xp, setXp, completedScenarios, setCompletedScenarios, masteredTerms, setMasteredTerms, goals, setGoals } = hub;
+  const openAssignment = allAssignments.byTab(activeTab);
+  const earnAssignmentXp = useCallback((amount: number) => hub.setXp((current) => current + amount), [hub.setXp]);
+
+  // Friendly reminder to sign in so work is saved to the account
+  const [showSignInReminder, setShowSignInReminder] = useState(false);
+  const [showAccountModal, setShowAccountModal] = useState(false);
+  const openAccount = useCallback(() => setShowAccountModal(true), []);
+  const [reminderDismissed, setReminderDismissed] = useState(false);
+  const activityCount = xp + masteredTerms.length + Object.keys(completedScenarios).length;
+  useEffect(() => {
+    if (auth.authLoading || auth.user || reminderDismissed) return;
+    if (activityCount > 0) setShowSignInReminder(true);
+  }, [activityCount, auth.authLoading, auth.user, reminderDismissed]);
+  useEffect(() => {
+    if (auth.user) setShowSignInReminder(false);
+  }, [auth.user]);
+
+
+  // Speech Helper
+  const speakText = (text, id = null) => {
+    if ('speechSynthesis' in window) {
+      if (speechSynthesisActive && (currentSpeakingId === id || (id === null && currentSpeakingId === 'global'))) {
+        stopSpeech();
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.95;
+      utterance.onend = () => {
+        setSpeechSynthesisActive(false);
+        setCurrentSpeakingId(null);
+      };
+      utterance.onerror = () => {
+        setSpeechSynthesisActive(false);
+        setCurrentSpeakingId(null);
+      };
+      window.speechSynthesis.speak(utterance);
+      setSpeechSynthesisActive(true);
+      setCurrentSpeakingId(id || 'global');
+    }
+  };
+
+  const stopSpeech = () => {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      setSpeechSynthesisActive(false);
+      setCurrentSpeakingId(null);
+    }
+  };
+
+
+
+  const showPreviousEntrepreneur = () => {
+    setCurrentEntrepreneurIndex((current) => (current - 1 + ENTREPRENEURS_DATA.length) % ENTREPRENEURS_DATA.length);
+  };
+
+  const showNextEntrepreneur = () => {
+    setCurrentEntrepreneurIndex((current) => (current + 1) % ENTREPRENEURS_DATA.length);
+  };
+
+  useEffect(() => {
+    if (!showcaseOpen) return undefined;
+    const handleShowcaseKeyboard = (event) => {
+      if (event.key === 'ArrowLeft') showPreviousEntrepreneur();
+      if (event.key === 'ArrowRight') showNextEntrepreneur();
+      if (event.key === 'Escape') setShowcaseOpen(false);
+    };
+    window.addEventListener('keydown', handleShowcaseKeyboard);
+    return () => window.removeEventListener('keydown', handleShowcaseKeyboard);
+  }, [showcaseOpen]);
+
+  useEffect(() => {
+    if (activeTab === 'dashboard') return;
+    const frame = window.requestAnimationFrame(() => {
+      mainContentRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [activeTab]);
+
+  const getTextSizeClass = () => {
+    if (textSize === 'large') return 'text-lg';
+    if (textSize === 'xl') return 'text-xl';
+    return 'text-base';
+  };
+
+  return (
+    <div className={`min-h-screen overflow-x-clip transition-colors duration-200 ${
+      highContrast 
+        ? 'bg-black text-white font-bold' 
+        : 'bg-white text-[#414042]'
+    } ${dyslexicFont ? 'font-mono' : 'font-sans'}`}>
+      
+      <HubHeader
+        activeTab={activeTab}
+        onNavigate={setActiveTab}
+        signedIn={Boolean(auth.user)}
+        displayName={auth.displayName || 'Your Account'}
+        isTeacher={isTeacher}
+        xp={xp}
+        onSignIn={openAccount}
+        onSignOut={auth.signOut}
+        highContrast={highContrast}
+        onContrastChange={setHighContrast}
+        dyslexicFont={dyslexicFont}
+        onFontChange={setDyslexicFont}
+        textSize={textSize}
+        onTextSizeChange={setTextSize}
+        speechActive={speechSynthesisActive}
+        onStopSpeech={stopSpeech}
+      />
+
+      {/* MAIN CONTENT AREA */}
+      <main ref={mainContentRef} className={`max-w-7xl mx-auto scroll-mt-20 p-4 sm:p-6 lg:p-8 ${getTextSizeClass()}`}>
+        {activeTab === 'dashboard' && (
+          <DashboardView 
+            setActiveTab={setActiveTab} 
+            xp={xp} 
+            masteredCount={masteredTerms.length} 
+            scenariosCount={Object.keys(completedScenarios).length}
+            speakText={speakText}
+            highContrast={highContrast}
+          />
+        )}
+
+        {activeTab === 'glossary' && (
+          <GlossaryView 
+            terms={glossary.terms}
+            reloadTerms={glossary.reload}
+            isTeacher={isTeacher}
+            userId={auth.user?.id}
+            masteredTerms={masteredTerms} 
+            setMasteredTerms={setMasteredTerms}
+            setXp={setXp}
+            speakText={speakText}
+            stopSpeech={stopSpeech}
+            currentSpeakingId={currentSpeakingId}
+            speechSynthesisActive={speechSynthesisActive}
+            highContrast={highContrast}
+          />
+        )}
+
+        {activeTab === 'calculators' && (
+          <CalculatorsView speakText={speakText} highContrast={highContrast} />
+        )}
+
+        {activeTab === 'practice' && (
+          <PracticeView 
+            completedScenarios={completedScenarios} 
+            setCompletedScenarios={setCompletedScenarios}
+            setXp={setXp}
+            speakText={speakText}
+            highContrast={highContrast}
+          />
+        )}
+
+        {activeTab === 'simulator' && (
+          <VentureSimulatorView setXp={setXp} highContrast={highContrast} speakText={speakText} />
+        )}
+
+        {activeTab === 'entrepreneurs' && (
+          <div className="space-y-6">
+            <div>
+              <h2 className={`text-2xl font-bold flex items-center gap-2 ${highContrast ? 'text-yellow-300' : 'text-[#414042]'}`}>
+                Entrepreneur Profiles
+              </h2>
+              <p className={`mt-1 text-sm ${highContrast ? 'text-white' : 'text-[#414042]/70'}`}>
+                Meet 25 diverse founders — from young inventors to global CEOs. Click any profile to open their full story.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+              {ENTREPRENEURS_DATA.map((person, index) => (
+                <button
+                  key={person.id}
+                  type="button"
+                  onClick={() => { setCurrentEntrepreneurIndex(index); setShowcaseOpen(true); }}
+                  className={`group flex flex-col items-center text-center p-4 rounded-2xl border transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${
+                    highContrast
+                      ? 'bg-zinc-900 border-2 border-white hover:border-yellow-400'
+                      : 'bg-white border-[#414042]/15 hover:border-[#C51C63] shadow-sm'
+                  }`}
+                  aria-label={`Open profile of ${person.name}`}
+                >
+                  <div className={`w-20 h-20 rounded-full overflow-hidden flex items-center justify-center text-white text-xl font-black shadow-md ring-4 ${highContrast ? 'ring-yellow-400' : 'ring-[#414042]/5 group-hover:ring-[#C51C63]/20'} ${person.accent}`}>
+                    {ENTREPRENEUR_PHOTOS[person.id] ? (
+                      <img
+                        src={ENTREPRENEUR_PHOTOS[person.id]}
+                        alt={`Portrait of ${person.name}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span aria-label={`${person.name} initials`}>{person.initials}</span>
+                    )}
+                  </div>
+                  <h3 className={`mt-3 font-black text-sm leading-tight ${highContrast ? 'text-white' : 'text-[#414042]'}`}>
+                    {person.name}
+                  </h3>
+                  <p className={`mt-1 text-xs leading-snug ${highContrast ? 'text-yellow-300' : 'text-[#414042]/60'}`}>
+                    {person.currentTitle}
+                  </p>
+                  <span className={`mt-2 px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                    highContrast ? 'bg-yellow-400 text-black' : 'bg-[#C51C63]/10 text-[#C51C63]'
+                  }`}>
+                    {person.categoryTags[0]}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <h3 className={`text-xl font-bold mb-3 ${highContrast ? 'text-yellow-300' : 'text-[#414042]'}`}>
+                Coming Soon
+              </h3>
+              <div className={`rounded-2xl overflow-hidden border shadow-lg ${highContrast ? 'border-yellow-400' : 'border-[#414042]/15'}`}>
+                <img
+                  src={comingSoonPhoto.url}
+                  alt="Coming soon — students collaborating in the entrepreneurship classroom"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'schedule' && (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <div>
+                <h2 className={`text-2xl font-bold flex items-center gap-2 ${highContrast ? 'text-yellow-300' : 'text-[#414042]'}`}>
+                  Class Schedule
+                </h2>
+                <p className={`mt-1 text-sm ${highContrast ? 'text-white' : 'text-[#414042]/70'}`}>
+                  Our shared MS Entrepreneurship Google Calendar — class sessions, deadlines, and events all in one place.
+                </p>
+              </div>
+              <a
+                href="https://calendar.google.com/calendar/embed?src=c_classroom7d094986%40group.calendar.google.com&ctz=America%2FNew_York"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition ${
+                  highContrast
+                    ? 'bg-yellow-400 text-black font-extrabold border-2 border-white'
+                    : 'bg-h

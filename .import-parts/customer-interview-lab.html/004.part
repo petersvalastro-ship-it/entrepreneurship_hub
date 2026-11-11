@@ -1,0 +1,73 @@
+nt;">“Don’t deadlines get confusing?”</p>
+      <p data-template-id="strong-two" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Try: “How did you keep track of deadlines last week?”</p>
+     </div>
+     <div class="small-card">
+      <p data-template-id="weak-three" class="canva-text font-bold text-[#cc2474] mb-3" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(204, 36, 116) !important; --canva-color: #cc2474ff; caret-color: rgb(204, 36, 116) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">“What features do you want?”</p>
+      <p data-template-id="strong-three" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Try: “Where did the process slow down or become difficult?”</p>
+     </div>
+    </div>
+    <div data-template-id="rules-panel" class="canva-panel border-l-4 border-[#ed5738] bg-[#fff4ef] p-5" style="background-image: linear-gradient(rgb(255, 244, 239), rgb(255, 244, 239)) !important; background-clip: border-box !important;">
+     <h3 data-template-id="rules-title" class="canva-text font-bold mb-2" data-canva-font-size="1.1875rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 19px;">The Question Rules</h3>
+     <p data-template-id="rules-text" class="canva-text leading-relaxed" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Begin with “Tell me about the last time…” or “Walk me through what happened.” Ask one question at a time. Pause. Follow up with “What happened next?” or “Why did that matter?” Do not collect names, contact information, or sensitive details.</p>
+    </div>
+   </section>
+   <section id="interviews" aria-labelledby="interviews-title" class="sheet p-5 md:p-8">
+    <div class="flex gap-4 items-start">
+     <span class="section-number">04 / INTERVIEW</span>
+     <h2 id="interviews-title" data-template-id="interviews-title" class="canva-text display font-bold" data-canva-font-size="1.5rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important; font-family: 'DM Sans', sans-serif !important; font-weight: 700 !important; font-style: normal !important; font-size: 24px;">Prepare &amp; Interview</h2>
+    </div>
+    <div class="rule my-5"></div>
+    <p data-template-id="routine-help" class="canva-text leading-relaxed mb-6" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Choose one school routine: scheduling group work, tracking deadlines, borrowing shared supplies, communicating about a club event, dividing project roles, or another teacher-approved routine.</p>
+    <div class="grid md:grid-cols-2 gap-5 mb-7">
+     <div>
+      <label for="routine" data-template-id="routine-label" class="canva-text field-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">My school routine</label><textarea id="routine" class="response short" data-export-label="School routine"></textarea>
+     </div>
+     <div>
+      <label for="assumption" data-template-id="assumption-label" class="canva-text field-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">My starting assumption: I think students struggle when… because…</label><textarea id="assumption" class="response" data-export-label="Starting assumption"></textarea>
+     </div>
+    </div>
+    <div data-template-id="guide-panel" class="canva-panel bg-[#251936] text-white p-5 md:p-6 mb-6" style="background-image: linear-gradient(rgb(37, 25, 54), rgb(37, 25, 54)) !important; background-clip: border-box !important;">
+     <h3 data-template-id="guide-title" class="canva-text font-bold mb-3" data-canva-font-size="1.1875rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(255, 255, 255) !important; --canva-color: #ffffffff; caret-color: rgb(255, 255, 255) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 19px;">Your Five-Question Interview Guide</h3>
+     <ol class="list-decimal pl-5 space-y-2 leading-relaxed">
+      <li>Tell me about the last time you [experienced this routine].</li>
+      <li>What did you do first?</li>
+      <li>Where did the process slow down or become difficult?</li>
+      <li>How did you handle that difficulty?</li>
+      <li>What mattered most to you in that situation, and why?</li>
+     </ol>
+    </div>
+    <p data-template-id="protocol" class="canva-text leading-relaxed text-[#625c69] mb-7" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(98, 92, 105) !important; --canva-color: #625c69ff; caret-color: rgb(98, 92, 105) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Interview three classmates for about four minutes each. Use A, B, and C instead of names. Ask the same core questions, listen more than you speak, and do not promise a solution. Ask permission before recording an exact phrase. Anyone may skip a question or stop.</p>
+    <h3 data-template-id="notes-title" class="canva-text font-bold mb-2" data-canva-font-size="1.1875rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 19px;">Customer Interview Notes</h3>
+    <p data-template-id="notes-reminder" class="canva-text text-[#625c69] mb-5" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(98, 92, 105) !important; --canva-color: #625c69ff; caret-color: rgb(98, 92, 105) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Record concise evidence in your own words. Do not enter names or sensitive personal information.</p>
+    <div class="grid lg:grid-cols-3 gap-4">
+     <div class="small-card space-y-4">
+      <h4 data-template-id="participant-a" class="canva-text font-bold text-[#61249a]" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(97, 36, 154) !important; --canva-color: #61249aff; caret-color: rgb(97, 36, 154) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 17px;">Participant A</h4>
+      <div>
+       <label for="a-event" data-template-id="a-event-label" class="canva-text field-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">What happened</label><textarea id="a-event" class="response" data-export-label="A: What happened"></textarea>
+      </div>
+      <div>
+       <label for="a-friction" data-template-id="a-friction-label" class="canva-text field-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">Friction or difficulty</label><textarea id="a-friction" class="response" data-export-label="A: Friction"></textarea>
+      </div>
+      <div>
+       <label for="a-workaround" data-template-id="a-workaround-label" class="canva-text field-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">Workaround and priority</label><textarea id="a-workaround" class="response" data-export-label="A: Workaround and priority"></textarea>
+      </div>
+     </div>
+     <div class="small-card space-y-4">
+      <h4 data-template-id="participant-b" class="canva-text font-bold text-[#cc2474]" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(204, 36, 116) !important; --canva-color: #cc2474ff; caret-color: rgb(204, 36, 116) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 17px;">Participant B</h4>
+      <div>
+       <label for="b-event" data-template-id="b-event-label" class="canva-text field-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">What happened</label><textarea id="b-event" class="response" data-export-label="B: What happened"></textarea>
+      </div>
+      <div>
+       <label for="b-friction" data-template-id="b-friction-label" class="canva-text field-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">Friction or difficulty</label><textarea id="b-friction" class="response" data-export-label="B: Friction"></textarea>
+      </div>
+      <div>
+       <label for="b-workaround" data-template-id="b-workaround-label" class="canva-text field-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">Workaround and priority</label><textarea id="b-workaround" class="response" data-export-label="B: Workaround and priority"></textarea>
+      </div>
+     </div>
+     <div class="small-card space-y-4">
+      <h4 data-template-id="participant-c" class="canva-text font-bold text-[#d4492b]" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(212, 73, 43) !important; --canva-color: #d4492bff; caret-color: rgb(212, 73, 43) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 17px;">Participant C</h4>
+      <div>
+       <label for="c-event" data-template-id="c-event-label" class="canva-text field-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">What happened</label><textarea id="c-event" class="response" data-export-label="C: What happened"></textarea>
+      </div>
+      <div>
+       <label for="c-friction" data-template-id="c-friction-la

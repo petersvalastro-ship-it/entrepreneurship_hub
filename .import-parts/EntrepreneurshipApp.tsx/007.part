@@ -1,0 +1,226 @@
+e={`mt-2 text-sm leading-relaxed ${highContrast ? 'text-yellow-200' : 'text-[#414042]/80'}`}>
+                  Make a Student Account with your first name, last initial and grade — or use your school Google account — and your XP, glossary terms, scenarios, notes, and learning goals will follow you to any device. Without signing in, your work only stays in this browser.
+                </p>
+              </div>
+            </div>
+            <div className="mt-5 flex flex-col sm:flex-row gap-2">
+              <button
+                onClick={() => { setShowSignInReminder(false); setShowAccountModal(true); }}
+                className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition ${
+                  highContrast ? 'bg-yellow-400 text-black' : 'bg-[#C51C63] text-white hover:bg-[#C51C63]/90'
+                }`}
+              >
+                <LogIn className="w-4 h-4" /> Sign in to save
+              </button>
+              <button
+                onClick={() => { setShowSignInReminder(false); setReminderDismissed(true); }}
+                className={`flex-1 inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold border transition ${
+                  highContrast ? 'border-yellow-400 text-yellow-300 hover:bg-zinc-800' : 'border-[#414042]/20 text-[#414042] hover:bg-[#414042]/5'
+                }`}
+              >
+                Maybe later
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <StudentAccountModal
+        open={showAccountModal && !auth.user}
+        onClose={() => setShowAccountModal(false)}
+        highContrast={highContrast}
+        onGoogle={auth.signIn}
+        onCreate={auth.createStudentAccount}
+        onSignIn={auth.signInStudent}
+      />
+
+      <EntrepreneurShowcase
+
+        isOpen={showcaseOpen}
+        onToggle={() => setShowcaseOpen((open) => !open)}
+        onClose={() => setShowcaseOpen(false)}
+        profile={ENTREPRENEURS_DATA[currentEntrepreneurIndex]}
+        currentIndex={currentEntrepreneurIndex}
+        totalProfiles={ENTREPRENEURS_DATA.length}
+        onPrevious={showPreviousEntrepreneur}
+        onNext={showNextEntrepreneur}
+        highContrast={highContrast}
+      />
+    </div>
+  );
+}
+
+function EntrepreneurShowcase({ isOpen, onToggle, onClose, profile, currentIndex, totalProfiles, onPrevious, onNext, highContrast }) {
+  const [photoFailed, setPhotoFailed] = useState(false);
+
+  useEffect(() => {
+    setPhotoFailed(false);
+  }, [profile.id]);
+
+  const photoUrl = ENTREPRENEUR_PHOTOS[profile.id];
+
+  return (
+    <aside className="fixed bottom-6 right-6 z-[70] flex flex-col items-end gap-3" aria-label="Entrepreneur showcase">
+      {isOpen && (
+        <section
+          role="dialog"
+          aria-modal="false"
+          aria-labelledby="entrepreneur-name"
+          className={`w-[min(360px,calc(100vw-2rem))] max-h-[520px] overflow-y-auto rounded-2xl border shadow-2xl ring-1 ring-black/5 animate-in fade-in slide-in-from-bottom-3 duration-200 ${
+            highContrast ? 'bg-black text-white border-2 border-yellow-400' : 'bg-[#414042] text-white border-white/20'
+          }`}
+        >
+          <div className={`sticky top-0 z-10 flex items-start gap-3 p-4 border-b ${highContrast ? 'bg-black border-white' : 'bg-[#414042] border-white/10'}`}>
+            <div className={`w-16 h-16 shrink-0 rounded-full overflow-hidden flex items-center justify-center text-white text-lg font-black shadow-md ring-2 ${highContrast ? 'ring-yellow-400' : 'ring-white/80'} ${profile.accent}`}>
+              {photoUrl && !photoFailed ? (
+                <img
+                  src={photoUrl}
+                  alt={`Portrait of ${profile.name}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  onError={() => setPhotoFailed(true)}
+                />
+              ) : (
+                <span aria-label={`${profile.name} initials`}>{profile.initials}</span>
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
+              <h2 id="entrepreneur-name" className={`font-black text-lg leading-tight ${highContrast ? 'text-white' : 'text-white'}`}>{profile.name}</h2>
+              <p className={`text-xs mt-1 leading-snug ${highContrast ? 'text-yellow-300' : 'text-white/70'}`}>{profile.currentTitle}</p>
+            </div>
+            <button type="button" onClick={onClose} aria-label="Close entrepreneur showcase" title="Close" className={`w-9 h-9 shrink-0 rounded-full flex items-center justify-center transition ${highContrast ? 'hover:bg-yellow-400 hover:text-black' : 'hover:bg-white/15'}`}>
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          <div key={profile.id} className="p-4 space-y-4 animate-in fade-in slide-in-from-right-2 duration-200">
+            <div className="flex flex-wrap gap-1.5">
+              {profile.categoryTags.map((tag) => (
+                <span key={tag} className={`px-2 py-1 rounded-full text-[10px] font-bold border ${highContrast ? 'border-yellow-400 text-yellow-300' : 'border-[#EFA835]/40 bg-[#EFA835]/15 text-[#EFA835]'}`}>{tag}</span>
+              ))}
+            </div>
+            <div className={`p-3 rounded-xl border-l-4 ${highContrast ? 'bg-zinc-900 border-yellow-400' : 'bg-white/5 border-[#EFA835]'}`}>
+              <h3 className={`text-xs font-black uppercase ${highContrast ? 'text-yellow-300' : 'text-[#EFA835]'}`}>Where They Started</h3>
+              <p className="text-sm leading-relaxed mt-1 text-white/90">{profile.whereTheyStarted}</p>
+            </div>
+            <div>
+              <h3 className={`text-xs font-black uppercase ${highContrast ? 'text-yellow-300' : 'text-[#E94928]'}`}>Most Known For</h3>
+              <p className="text-sm font-bold leading-relaxed mt-1 text-white">{profile.mostKnownFor}</p>
+            </div>
+            <div>
+              <h3 className={`text-xs font-black uppercase ${highContrast ? 'text-yellow-300' : 'text-[#C51C63]'}`}>Life & Career</h3>
+              <p className={`text-sm leading-relaxed mt-1 ${highContrast ? 'text-zinc-100' : 'text-white/80'}`}>{profile.overview}</p>
+            </div>
+          </div>
+
+          <div className={`sticky bottom-0 flex items-center justify-between gap-3 p-3 border-t ${highContrast ? 'bg-black border-white' : 'bg-[#414042] border-white/10'}`}>
+            <button type="button" onClick={onPrevious} aria-label="Previous entrepreneur" title="Previous entrepreneur" className={`w-10 h-10 rounded-full flex items-center justify-center transition active:scale-95 ${highContrast ? 'bg-yellow-400 text-black hover:bg-yellow-300' : 'bg-[#C51C63] text-white hover:bg-[#E94928]'}`}>
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <span className="text-xs font-black tabular-nums text-white">{currentIndex + 1} of {totalProfiles}</span>
+            <button type="button" onClick={onNext} aria-label="Next entrepreneur" title="Next entrepreneur" className={`w-10 h-10 rounded-full flex items-center justify-center transition active:scale-95 ${highContrast ? 'bg-yellow-400 text-black hover:bg-yellow-300' : 'bg-[#C51C63] text-white hover:bg-[#E94928]'}`}>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </section>
+      )}
+
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-label={isOpen ? 'Close entrepreneur showcase' : 'Open entrepreneur showcase'}
+        aria-expanded={isOpen}
+        title={isOpen ? 'Close entrepreneur showcase' : 'Meet an entrepreneur'}
+        className={`w-16 h-16 rounded-full flex items-center justify-center shadow-xl transition-transform duration-200 hover:scale-110 active:scale-95 ${
+          highContrast ? 'bg-yellow-400 text-black border-2 border-white' : 'bg-[#C51C63] text-white border-4 border-white'
+        }`}
+      >
+        {isOpen ? <X className="w-7 h-7" /> : <Sparkles className="w-7 h-7" />}
+      </button>
+    </aside>
+  );
+}
+
+function DashboardView({ setActiveTab, xp, masteredCount, scenariosCount, speakText, highContrast }) {
+  const totalTerms = useGlossary().terms.length;
+  const [confetti, setConfetti] = useState<number[]>([]);
+  const confettiTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const triggerConfetti = () => {
+    const pieces = Array.from({ length: 60 }, (_, i) => i);
+    setConfetti(pieces);
+    if (confettiTimer.current) clearTimeout(confettiTimer.current);
+    confettiTimer.current = setTimeout(() => setConfetti([]), 4500);
+  };
+
+  useEffect(() => {
+    return () => { if (confettiTimer.current) clearTimeout(confettiTimer.current); };
+  }, []);
+
+  return (
+    <div className="animate-fadeIn">
+      {/* STICKY HERO BANNER — pinned while content scrolls up over it */}
+      <div className="sticky top-0 z-0">
+        <div className={`relative w-screen left-1/2 -translate-x-1/2 overflow-hidden shadow-xs ${
+          highContrast ? 'bg-zinc-900' : 'bg-[#414042]'
+        }`}>
+        {/* Hero background image (NEIA campus) */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${neiaHero.url})` }}
+        />
+        {/* Legibility overlay — strong on the left behind the text, fading right so the green campus shows through */}
+        <div
+          aria-hidden="true"
+          className={`absolute inset-0 ${highContrast ? 'bg-zinc-900/85' : 'bg-gradient-to-r from-white/95 via-white/60 to-white/15'}`}
+        />
+        {/* White glittering confetti — falls from top on headline click */}
+        {confetti.length > 0 && (
+          <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[60] overflow-hidden">
+            {confetti.map((i) => {
+              const left = Math.random() * 100;
+              const delay = Math.random() * 1.2;
+              const duration = 3 + Math.random() * 2;
+              const size = 6 + Math.random() * 8;
+              const drift = (Math.random() - 0.5) * 120;
+              const isStar = Math.random() > 0.6;
+              return (
+                <span
+                  key={i}
+                  className="confetti-piece absolute top-0 block"
+                  style={{
+                    left: `${left}%`,
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    animationDelay: `${delay}s`,
+                    animationDuration: `${duration}s`,
+                    // @ts-ignore custom property for drift
+                    ['--drift']: `${drift}px`,
+                    background: isStar ? 'transparent' : 'rgba(255,255,255,0.95)',
+                    boxShadow: isStar ? 'none' : '0 0 6px rgba(255,255,255,0.8)',
+                    borderRadius: isStar ? '0' : '50%',
+                  }}
+                >
+                  {isStar && (
+                    <Sparkles className="text-white" style={{ width: `${size}px`, height: `${size}px`, filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.9))' }} />
+                  )}
+                </span>
+              );
+            })}
+          </div>
+        )}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+          <div className="relative">
+            <h1
+              onClick={triggerConfetti}
+              className={`hero-glow cursor-pointer text-4xl sm:text-6xl md:text-7xl font-black tracking-tight drop-shadow-lg leading-tight transition-all duration-500 ${highContrast ? 'text-white' : 'text-[#414042]'}`}>
+              Activate Your <span className={highContrast ? 'text-yellow-300 underline' : 'text-[#C51C63]'}>Entrepreneurial Mindset</span>
+            </h1>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      {/* Scrollable content layer — rises over the pinned hero */}
+      <div className="hub-surface hub-homepage relative z-10 -mt-6 sm:-mt-10 bg-hub-nav px-6 py-6 text-left

@@ -1,0 +1,124 @@
+urn copied;
+    };
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else if (typeof document !== 'undefined') {
+        copyWithTextarea();
+      }
+      setQuoteCopied(true);
+      window.setTimeout(() => setQuoteCopied(false), 1600);
+    } catch {
+      const copied = copyWithTextarea();
+      setQuoteCopied(copied);
+      if (copied) window.setTimeout(() => setQuoteCopied(false), 1600);
+    }
+  };
+
+  return (
+    <div className="hub-surface grid items-stretch gap-4 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]" data-contrast={highContrast}>
+      <div className="hub-directory-card flex flex-col justify-start gap-4 px-5 py-5 sm:flex-row sm:items-center sm:gap-5">
+        <div className="flex min-w-0 items-center gap-3">
+          <Clock className="size-5 shrink-0 text-hub-nav-muted" />
+          <div>
+            <p className="text-sm font-semibold">{dayOfWeek ? `${dayOfWeek}, ${fullDate}` : fullDate}</p>
+            <p className="mt-1 text-xs tabular-nums text-hub-nav-muted" aria-live="off">{time}</p>
+          </div>
+        </div>
+        <div className="hidden w-px self-stretch bg-hub-nav-border sm:block" />
+        <div className="flex min-w-0 items-center gap-3">
+          <WIcon className="size-5 shrink-0 text-hub-nav-muted" />
+          <div>
+            <p className="text-sm font-semibold">Marlborough, MA</p>
+            <p className="mt-1 text-xs leading-relaxed text-hub-nav-muted">{weather ? `${Math.round(weather.temperature_2m)}°F · ${info.label} · Wind ${Math.round(weather.wind_speed_10m)} mph` : 'Loading weather…'}</p>
+          </div>
+        </div>
+      </div>
+      <div className="hub-directory-card min-w-0 px-5 py-4">
+        <div className="flex items-start gap-3">
+          <Quote className="mt-1 size-5 shrink-0 text-hub-indicator" />
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-semibold text-hub-nav-muted">Quote of the Day</p>
+            <Button variant="hubLink" onClick={() => copyQuote(quote)} className="mt-1 h-auto w-full justify-start whitespace-normal px-0 py-1 text-left text-sm font-medium leading-relaxed text-hub-nav-foreground">
+              <span>“{quote.text}” <span className="text-hub-nav-muted">— {quote.author}</span></span>
+            </Button>
+            <div className="mt-2 flex flex-wrap gap-3">
+              <Button variant="hubLink" size="sm" className="h-7 px-0 text-xs" onClick={() => setShowQuoteHistory((prev) => !prev)} aria-expanded={showQuoteHistory}><History /> Prior quotes</Button>
+              <Button variant="hubLink" size="sm" className="h-7 px-0 text-xs" onClick={() => copyQuote(quote)}>{quoteCopied ? <Check /> : <Copy />}{quoteCopied ? 'Copied' : 'Copy'}</Button>
+              <span className="sr-only" role="status">{quoteCopied ? 'Quote copied' : ''}</span>
+            </div>
+          </div>
+        </div>
+        {showQuoteHistory && quoteHistory.length > 0 && (
+          <div className="mt-3 grid gap-2 border-t border-hub-nav-border pt-3">
+            {quoteHistory.map((item) => (
+              <Button key={item.date.toISOString()} variant="hubLink" onClick={() => copyQuote(item.quote)} className="h-auto justify-start whitespace-normal px-2 py-2 text-left text-sm">
+                <span><span className="mb-1 block text-xs text-hub-nav-muted">{formatQuoteDate(item.date)}</span>“{item.quote.text}” <span className="text-hub-nav-muted">— {item.quote.author}</span></span>
+              </Button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+
+
+const PRACTICE_SCENARIOS = [
+  {
+    id: 1,
+    title: "Scenario 1: Calculating Alex's Net Worth",
+    story: "Alex is reviewing his personal finances. He owns a high-end sneaker cleaning kit worth $120 and has $80 in his savings account. However, he owes his older sister $30 for helping him design his business logo.",
+    question: "What is Alex's current Net Worth?",
+    type: "number",
+    correctAnswer: 170,
+    unit: "$",
+    hint: "Formula: Net Worth = Total Assets - Total Liabilities. First, add Alex's sneaker kit ($120) and savings ($80) to get Total Assets.",
+    explanation: "Total Assets = $120 (Kit) + $80 (Savings) = $200. Total Liabilities = $30 (Owed to sister). Net Worth = $200 - $30 = $170."
+  },
+  {
+    id: 2,
+    title: "Scenario 2: Revenue vs. Profit in Action",
+    story: "Last Saturday, Alex cleaned 10 pairs of sneakers charging $15 per pair. To complete these jobs, he spent $12 on specialty cleaning solution and $8 on new microfiber cloths.",
+    question: "Calculate Alex's Net Profit for the day.",
+    type: "number",
+    correctAnswer: 130,
+    unit: "$",
+    hint: "First find Total Revenue (10 pairs × $15). Then subtract Total Expenses ($12 + $8).",
+    explanation: "Revenue = 10 × $15 = $150. Expenses = $12 + $8 = $20. Profit = Revenue - Expenses = $150 - $20 = $130!"
+  },
+  {
+    id: 3,
+    title: "Scenario 3: ROI Equipment Purchase",
+    story: "Alex decides to upgrade his business. He purchases an electric brush kit for $50. Over the next month, this tool allows him to take on extra jobs and earn an additional $120 in Net Profit.",
+    question: "What is Alex's Return on Investment (ROI) percentage on this tool?",
+    type: "number",
+    correctAnswer: 240,
+    unit: "%",
+    hint: "Formula: ROI = (Net Profit / Cost of Investment) × 100",
+    explanation: "ROI = ($120 Profit / $50 Investment) × 100 = 2.4 × 100 = 240%!"
+  }
+];
+
+const SORTING_GAME_ITEMS = [
+  { name: 'Vinyl Cutting Machine for the sticker studio', correctCategory: 'Fixed', why: 'Bought once — the cost stays the same whether you sell 1 sticker or 500.' },
+  { name: 'Sheets of vinyl used for each sticker order', correctCategory: 'Variable', why: 'More orders means more vinyl, so this cost rises with sales.' },
+  { name: 'Monthly design software subscription ($12)', correctCategory: 'Fixed', why: 'You pay the same $12 every month no matter how much you sell.' },
+  { name: 'Shipping mailers and postage per package', correctCategory: 'Variable', why: 'Every shipped order adds another mailer and stamp.' },
+  { name: 'Craft-fair booth fee ($25 flat)', correctCategory: 'Fixed', why: 'The booth costs $25 whether you sell out or sell nothing.' },
+  { name: 'Ink and laminate used per sticker sheet', correctCategory: 'Variable', why: 'Supplies are consumed in proportion to units produced.' },
+  { name: 'Printed banner for the sales table', correctCategory: 'Fixed', why: 'One-time signage cost that does not change with volume.' },
+  { name: 'Marketplace fee charged on each sale', correctCategory: 'Variable', why: 'The platform takes a cut on every single order.' }
+];
+
+const ENTREPRENEURS_DATA = [
+  { id: 1, name: 'Mikaila Ulmer', categoryTags: ['Young Founder', 'Female Entrepreneur', 'Food & Beverage'], ageGroup: 'Young', gender: 'Female', photoUrl: '', initials: 'MU', accent: 'bg-[#EFA835]', currentTitle: 'Founder & CEO, Me & the Bees Lemonade', whereTheyStarted: 'At age four, Mikaila used her great-grandmother’s flaxseed lemonade recipe and a fascination with bees to enter a children’s business competition.', mostKnownFor: 'Building Me & the Bees Lemonade into a nationally distributed brand while supporting bee conservation.', overview: 'Mikaila turned an early product idea into a mission-driven company. Her story shows how curiosity, family knowledge, and a social purpose can grow together.' },
+  { id: 2, name: 'Moziah Bridges', categoryTags: ['Young Founder', 'Male Entrepreneur', 'Fashion'], ageGroup: 'Young', gender: 'Male', photoUrl: '', initials: 'MB', accent: 'bg-[#C51C63]', currentTitle: "Founder, Mo's Bows", whereTheyStarted: 'Moziah began hand-sewing bow ties at age nine after learning from his grandmother and noticing a gap in colorful children’s accessories.', mostKnownFor: "Launching Mo's Bows and securing major retail and sports partnerships.", overview: 'He grew from a home sewing table to a recognized fashion business by combining a distinct personal style with persistence and strong storytelling.' },
+  { id: 3, name: 'Ben Pasternak', categoryTags: ['Young Founder', 'Male Entrepreneur', 'Technology'], ageGroup: 'Young', gender: 'Male', photoUrl: '', initials: 'BP', accent: 'bg-[#E94928]', currentTitle: 'Technology Entrepreneur, SIMULATE / NUGGS', whereTheyStarted: 'Ben built a simple mobile game while bored in a high-school science class in Sydney, then watched it rise in app-store rankings.', mostKnownFor: 'Co-founding technology ventures and the plant-based food company SIMULATE.', overview: 'Ben moved from app development into consumer food, demonstrating how entrepreneurial skills can transfer across very different industries.' },
+  { id: 4, name: 'Alina Morse', categoryTags: ['Young Founder', 'Female Entrepreneur', 'Consumer Goods'], ageGroup: 'Young', gender: 'Female', photoUrl: '', initials: 'AM', accent: 'bg-[#414042]', currentTitle: 'Founder & CEO, Zolli Candy', whereTheyStarted: 'At age seven, Alina wondered why candy could not be better for teeth and began testing recipes with her family.', mostKnownFor: 'Creating sugar-free Zollipops and building a widely sold better-for-you candy brand.', overview: 'Her willingness to question an everyday product led to years of testing, retail growth, and a company with an educational mission.' },
+  { id: 5, name: 'Gabby Goodwin', categoryTags: ['Young Founder', 'Female Entrepreneur', 'Beauty'], ageGroup: 'Young', gender: 'Female', photoUrl: '', initials: 'GG', accent: 'bg-[#C51C63]', currentTitle: 'Co-founder, GaBBY Bows', whereTheyStarted: 'Gabby and her mother solved the recurring problem of hair barrettes slipping out by designing a double-face, double-snap bow.', mostKnownFor: 'Patenting and selling GaBBY Bows while teaching other young entrepreneurs.', overview: 'Gabby turned a personal frustration into an inventive product, learning product design, intellectual property, and customer service at a young age.' },
+  { id: 6, name: 'Cory Nieves', categoryTags: ['Young Founder', 'Male Entrepreneur', 'Food & Beverage'], ageGroup: 'Young', gender: 'Male', photoUrl: '', initials: 'CN', accent: 'bg-[#EFA835]', currentTitle: 'Founder, Mr. Cory’s Cookies', whereTheyStarted: 'Cory first sold hot cocoa to help his mother buy a car, then shifted to cookies after customers asked for a product they could take home.', mostKnownFor: 'Growing Mr. Cory’s Cookies from a neighborhood stand into a premium cookie company.', overview: 'His early pivot from drinks to packaged treats highlights listening to customers and adapting an idea when a stronger opportunity appears.' },
+  { id: 7, name: 'Asia Newson', categoryTags: ['Young Founder', 'Female Entrepreneur', 'Retail'], ageGroup: 'Young', gender: 'Female', photoUrl: '', initials: 'AN', accent: 'bg-[#E94928]', currentTitle: 'Founder, Super Business Girl', whereTheyStarted: 'Asia learned candle-making from her father and began selling handmade candles door to door in Detroit.', mostKnownFor: 'Building Super Business Girl and encouraging youth entrepreneurship.', overview: 'Asia used direct selling to understand customers, improve her confidence, and develop a brand focused on both products and youth empowerment.' },
+  { id: 8, name: 'Fraser Doherty', categoryTags: ['Young Founder', 'Male Entrepreneur', 'Food & Beverage'], ageGroup: 'Young', gender: 'Male', photoUrl: '', initials: 'FD', accent: 'bg-[#414042]', currentTitle: 'Founder, SuperJam', whereTheyStarted: 'Fraser learned to make jam from his grandmother in Scotland and started selling his own recipes as a teenager.', mostKnownFor: 'Creating SuperJam and winning national supermarket distribution.', overview: 'He scaled a family recipe by simplifying ingredients, refining packaging, and convincing large retailers that his product deserved shelf space.' },
+  { id: 9, name: 'Sara Blakely', categoryTags: ['Adult Founder', 'Female Entrepreneur', 'Fashion'], ageGroup: 'Adult', gender:

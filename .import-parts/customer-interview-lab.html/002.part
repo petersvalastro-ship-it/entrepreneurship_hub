@@ -1,0 +1,77 @@
+eight: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 24px;">Plan for Today</h2>
+     <div class="route-table-wrap">
+      <table class="route-table" aria-label="Plan for today">
+       <thead>
+        <tr>
+         <th>Activity</th>
+         <th>Minutes</th>
+         <th>What you will do</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td data-template-id="route-begin" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Question of the Day</td>
+         <td data-template-id="route-begin-time" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">5</td>
+         <td data-template-id="route-begin-do" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Choose a position and explain it.</td>
+        </tr>
+        <tr>
+         <td data-template-id="route-case" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Case Study</td>
+         <td data-template-id="route-case-time" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">12</td>
+         <td data-template-id="route-case-do" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Read the Gymshark case and respond with evidence.</td>
+        </tr>
+        <tr>
+         <td data-template-id="route-lab" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Rebus Studio</td>
+         <td data-template-id="route-lab-time" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">40</td>
+         <td data-template-id="route-lab-do" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Create three puzzles, peer test, and revise.</td>
+        </tr>
+        <tr>
+         <td data-template-id="route-exit" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Exit Ticket</td>
+         <td data-template-id="route-exit-time" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">3</td>
+         <td data-template-id="route-exit-do" class="canva-text" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Name what the test revealed and your next move.</td>
+        </tr>
+       </tbody>
+      </table>
+     </div><!-- legacy route details retained below for editable course planning -->
+     <div class="route-timeline" aria-label="Today’s route">
+      <div class="route-step">
+       <span class="route-dot" aria-hidden="true"></span>
+       <div>
+        <strong data-template-id="route-begin" class="canva-text route-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Question of the Day</strong><span data-template-id="route-begin-time" class="canva-text route-time" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">5</span>
+       </div>
+      </div>
+      <div class="route-step">
+       <span class="route-dot" aria-hidden="true"></span>
+       <div>
+        <strong data-template-id="route-case" class="canva-text route-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Case Study</strong><span data-template-id="route-case-time" class="canva-text route-time" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">12</span>
+       </div>
+      </div>
+      <div class="route-step">
+       <span class="route-dot" aria-hidden="true"></span>
+       <div>
+        <strong data-template-id="route-lab" class="canva-text route-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Rebus Studio</strong><span data-template-id="route-lab-time" class="canva-text route-time" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">40</span>
+       </div>
+      </div>
+      <div class="route-step">
+       <span class="route-dot" aria-hidden="true"></span>
+       <div>
+        <strong data-template-id="route-interviews" class="canva-text route-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(255, 255, 255) !important; --canva-color: #ffffffff; caret-color: rgb(255, 255, 255) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">Interviews</strong><span data-template-id="route-interviews-time" class="canva-text route-time" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(234, 220, 240) !important; --canva-color: #eadcf0ff; caret-color: rgb(234, 220, 240) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">18 min</span>
+       </div>
+      </div>
+      <div class="route-step">
+       <span class="route-dot" aria-hidden="true"></span>
+       <div>
+        <strong data-template-id="route-evidence" class="canva-text route-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(255, 255, 255) !important; --canva-color: #ffffffff; caret-color: rgb(255, 255, 255) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">Evidence decision</strong><span data-template-id="route-evidence-time" class="canva-text route-time" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(234, 220, 240) !important; --canva-color: #eadcf0ff; caret-color: rgb(234, 220, 240) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">12 min</span>
+       </div>
+      </div>
+      <div class="route-step">
+       <span class="route-dot" aria-hidden="true"></span>
+       <div>
+        <strong data-template-id="route-exit" class="canva-text route-label" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">Exit Ticket</strong><span data-template-id="route-exit-time" class="canva-text route-time" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">3</span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div data-template-id="targets-panel" class="canva-panel bg-[#fcecf2] p-6 rounded" style="background-image: linear-gradient(rgb(252, 236, 242), rgb(252, 236, 242)) !important; background-clip: border-box !important;">
+     <h2 data-template-id="targets-title" class="canva-text font-bold mb-2" data-canva-font-size="1.5rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(36, 28, 48) !important; --canva-color: #241c30ff; caret-color: rgb(36, 28, 48) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 24px;">Your Learning Targets</h2>
+     <ul class="list-disc pl-5 space-y-1 leading-relaxed">
+      <li data-template-id="target-one" class="canva-text" data-canva-font-size=

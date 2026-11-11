@@ -1,0 +1,176 @@
+t-white' : 'text-[#414042]'}`}>
+          Micro-Venture Pitch & Financial Builder
+        </h2>
+        <p className={`text-xs mt-1 ${highContrast ? 'text-zinc-200' : 'text-[#414042]/70'}`}>
+          Apply your business literacy! Calculate costs, draft a captivating 30-second elevator pitch, and generate your complete pitch deck card.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* INPUT SETUP FORM */}
+        <div className={`p-6 rounded-2xl border shadow-xs space-y-5 ${
+          highContrast ? 'bg-zinc-900 border-2 border-white text-white' : 'bg-white border-[#414042]/15'
+        }`}>
+          <h3 className={`font-bold text-lg border-b pb-2 ${highContrast ? 'text-yellow-300 border-white' : 'text-[#414042] border-[#414042]/10'}`}>1. Venture Financial Setup</h3>
+
+          <div className="space-y-1">
+            <label className={`text-xs font-semibold ${highContrast ? 'text-white' : 'text-[#414042]'}`}>Business Name</label>
+            <input 
+              type="text" 
+              value={bizName} 
+              onChange={(e) => setBizName(e.target.value)}
+              className={`w-full px-3 py-2 rounded-xl text-sm focus:outline-none shadow-xs ${
+                highContrast 
+                  ? 'bg-black text-white border-2 border-white focus:border-yellow-400 font-bold' 
+                  : 'bg-[#414042]/5 border border-[#414042]/20 text-[#414042] focus:border-[#C51C63]'
+              }`}
+            />
+          </div>
+
+          <div className="space-y-1">
+            <label className={`text-xs font-semibold ${highContrast ? 'text-white' : 'text-[#414042]'}`}>Industry / Service Type</label>
+            <select 
+              value={bizCategory}
+              onChange={(e) => setBizCategory(e.target.value)}
+              className={`w-full px-3 py-2 rounded-xl text-sm focus:outline-none shadow-xs ${
+                highContrast 
+                  ? 'bg-black text-white border-2 border-white focus:border-yellow-400 font-bold' 
+                  : 'bg-[#414042]/5 border border-[#414042]/20 text-[#414042] focus:border-[#C51C63]'
+              }`}
+            >
+              <option value="Custom Stickers & Merch">Custom Stickers & Merch</option>
+              <option value="Sneaker Cleaning & Care">Sneaker Cleaning & Care</option>
+              <option value="Dog Walking & Pet Sitting">Dog Walking & Pet Sitting</option>
+              <option value="Tech Help & Coding Tutoring">Tech Help & Coding Tutoring</option>
+              <option value="Baked Goods & Refreshments">Baked Goods & Refreshments</option>
+              <option value="Other">Other (Write Your Own...)</option>
+            </select>
+
+            {bizCategory === 'Other' && (
+              <div className="pt-2 space-y-1">
+                <label className={`text-xs font-semibold ${highContrast ? 'text-white' : 'text-[#414042]'}`}>
+                  Write your own industry / service type
+                </label>
+                <input
+                  type="text"
+                  value={customCategory}
+                  onChange={(e) => setCustomCategory(e.target.value)}
+                  placeholder="e.g. Handmade Jewelry, Lawn Care, Photo Editing..."
+                  className={`w-full px-3 py-2 rounded-xl text-sm focus:outline-none shadow-xs ${
+                    highContrast
+                      ? 'bg-black text-white border-2 border-yellow-400 font-bold placeholder:text-zinc-500'
+                      : 'bg-[#414042]/5 border border-[#C51C63]/40 text-[#414042] focus:border-[#C51C63] placeholder:text-[#414042]/40'
+                  }`}
+                />
+                <p className={`text-[11px] ${highContrast ? 'text-zinc-300' : 'text-[#414042]/60'}`}>
+                  This name is used in your elevator pitch and pitch deck card.
+                </p>
+              </div>
+            )}
+          </div>
+
+
+          {/* Form fields continued... */}
+          <div className="grid grid-cols-2 gap-3 pt-1">
+            <div>
+              <label className={`text-xs font-semibold ${highContrast ? 'text-white' : 'text-[#414042]'}`}>Price per Unit ($)</label>
+              <input 
+                type="number" step="0.5" 
+                value={unitPrice} 
+                onChange={(e) => setUnitSellPrice(Number(e.target.value))}
+                className={`w-full px-3 py-2 rounded-xl text-sm font-mono shadow-xs ${
+                  highContrast ? 'bg-black text-white border-2 border-white' : 'bg-[#414042]/5 border border-[#414042]/20 text-[#414042]'
+                }`}
+              />
+            </div>
+            <div>
+              <label className={`text-xs font-semibold ${highContrast ? 'text-white' : 'text-[#414042]'}`}>Variable Cost/Unit ($)</label>
+              <input 
+                type="number" step="0.25" 
+                value={varCost} 
+                onChange={(e) => setVarCost(Number(e.target.value))}
+                className={`w-full px-3 py-2 rounded-xl text-sm font-mono shadow-xs ${
+                  highContrast ? 'bg-black text-white border-2 border-white' : 'bg-[#414042]/5 border border-[#414042]/20 text-[#414042]'
+                }`}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* LIVE EXECUTIVE PITCH CARD & ELEVATOR PITCH PREVIEW */}
+        <div className="space-y-6">
+          {/* Pitch Card */}
+          <div className={`p-6 rounded-2xl flex flex-col justify-between space-y-6 relative overflow-hidden shadow-xl ${
+            highContrast ? 'bg-black border-4 border-yellow-400 text-white' : 'bg-[#414042] border-2 border-[#EFA835]/40 text-white'
+          }`}>
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <div>
+                  <span className={`text-[10px] uppercase font-mono tracking-widest px-2.5 py-1 rounded-full font-bold border ${
+                    highContrast ? 'bg-yellow-400 text-black border-white' : 'text-[#EFA835] bg-[#EFA835]/20 border-[#EFA835]/40'
+                  }`}>
+                    Executive Business Pitch
+                  </span>
+                  <h3 className="text-2xl font-black text-white mt-2.5">{bizName || 'My Venture'}</h3>
+                  <p className="text-xs text-stone-300">{displayCategory}</p>
+                </div>
+                <Sparkles className="w-8 h-8 text-[#EFA835]" />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="bg-zinc-900 p-3 rounded-xl border border-white/20">
+                  <div className="text-[10px] text-yellow-300 font-mono">BREAK-EVEN TARGET</div>
+                  <div className="text-xl font-bold text-white">{breakEvenTarget} units</div>
+                </div>
+                <div className="bg-zinc-900 p-3 rounded-xl border border-white/20">
+                  <div className="text-[10px] text-yellow-300 font-mono">PROFIT MARGIN / UNIT</div>
+                  <div className="text-xl font-bold text-white">${profitMargin.toFixed(2)}</div>
+                </div>
+              </div>
+            </div>
+
+            <button 
+              onClick={() => {
+                setXp(prev => prev + 50);
+                alert(`🎉 Pitch Deck Saved! You earned 50 XP for completing your business setup.`);
+              }}
+              className={`w-full py-3 font-black rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-lg ${
+                highContrast 
+                  ? 'bg-yellow-400 hover:bg-yellow-300 text-black font-extrabold border-2 border-white' 
+                  : 'bg-[#EFA835] hover:bg-[#d9962b] text-[#414042]'
+              }`}
+            >
+              <Trophy className="w-4 h-4" /> Save Pitch Card & Earn XP (+50 XP)
+            </button>
+          </div>
+
+          {/* Dynamic Elevator Pitch Box */}
+          <div className={`p-6 rounded-2xl border shadow-xs space-y-4 ${
+            highContrast ? 'bg-zinc-900 border-2 border-yellow-400 text-white' : 'bg-white border-[#414042]/15'
+          }`}>
+            <h3 className={`font-bold text-lg flex items-center gap-2 ${highContrast ? 'text-white' : 'text-[#414042]'}`}>
+              🎙️ Generated Elevator Pitch
+            </h3>
+
+            <div className={`p-4 rounded-xl border text-sm leading-relaxed ${
+              highContrast ? 'bg-black text-yellow-300 border-2 border-white font-medium' : 'bg-[#E94928]/5 text-[#414042] border-[#E94928]/20'
+            }`}>
+              "{currentPitchText}"
+            </div>
+
+            <div className="flex flex-wrap justify-between items-center gap-2 pt-1">
+              <button 
+                onClick={() => speakText(currentPitchText, 'elevator_pitch')}
+                className={`font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition shadow-xs ${
+                  highContrast ? 'bg-yellow-400 text-black hover:bg-yellow-300 font-extrabold border-2 border-white' : 'bg-[#C51C63] hover:bg-[#a81452] text-white'
+                }`}
+              >
+                <Volume2 className="w-4 h-4" /> Practice Pitch Aloud
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

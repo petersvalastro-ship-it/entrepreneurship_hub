@@ -1,0 +1,218 @@
+// @ts-nocheck
+import SyllabusPage from './SyllabusPage';
+import HubHeader from './HubHeader';
+import { Button } from '@/components/ui/button';
+import AssignmentPage from './AssignmentPage';
+import AssignmentsPage from './AssignmentsPage';
+import { useAssignments } from '@/hooks/useAssignments';
+import CaseStudiesPage from './CaseStudiesPage';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { 
+  BookOpen, Calculator, Rocket, Trophy, Volume2, Sparkles, 
+  CheckCircle2, XCircle, ArrowLeft, ArrowRight, HelpCircle, RefreshCw, 
+  Search, Award, Layers, DollarSign, TrendingUp, PieChart, 
+  Eye, Type, Sun, Moon, VolumeX, ShieldAlert, Play, Check,
+  Target, Briefcase, Plus, Trash2, ChevronRight, Zap, Menu, X,
+  ExternalLink, Users, Mail, Presentation, Clock, MapPin, Cloud, CloudRain,
+  CloudSnow, CloudLightning, CloudFog, Cloudy, Thermometer, Wind, Quote, Calendar, MessageSquareText, ClipboardList, Puzzle, Lightbulb,
+  GraduationCap, LogIn, LogOut, UserCircle, Copy, History
+} from 'lucide-react';
+import neiaHero from '../assets/neia-hero-new.jpeg.asset.json';
+import pietroPhoto from '../assets/pietro-valastro.jpg.asset.json';
+import neiaLogo from '../assets/neia-logo.png.asset.json';
+import mikailaUlmerPhoto from '../assets/entrepreneurs/mikaila-ulmer.jpg.asset.json';
+import moziahBridgesPhoto from '../assets/entrepreneurs/moziah-bridges.jpg.asset.json';
+import benPasternakPhoto from '../assets/entrepreneurs/ben-pasternak.jpg.asset.json';
+import alinaMorsePhoto from '../assets/entrepreneurs/alina-morse.jpg.asset.json';
+import gabbyGoodwinPhoto from '../assets/entrepreneurs/gabby-goodwin.png.asset.json';
+import coryNievesPhoto from '../assets/entrepreneurs/cory-nieves.jpg.asset.json';
+import asiaNewsonPhoto from '../assets/entrepreneurs/asia-newson.jpg.asset.json';
+import fraserDohertyPhoto from '../assets/entrepreneurs/fraser-doherty.jpg.asset.json';
+import saraBlakelyPhoto from '../assets/entrepreneurs/sara-blakely.jpg.asset.json';
+import yvonChouinardPhoto from '../assets/entrepreneurs/yvon-chouinard.jpg.asset.json';
+import melaniePerkinsPhoto from '../assets/entrepreneurs/melanie-perkins.jpg.asset.json';
+import madamCjWalkerPhoto from '../assets/entrepreneurs/madam-cj-walker.jpg.asset.json';
+import daymondJohnPhoto from '../assets/entrepreneurs/daymond-john.jpg.asset.json';
+import janKoumPhoto from '../assets/entrepreneurs/jan-koum.jpg.asset.json';
+import reshmaSaujaniPhoto from '../assets/entrepreneurs/reshma-saujani.jpg.asset.json';
+import hamdiUlukayaPhoto from '../assets/entrepreneurs/hamdi-ulukaya.jpg.asset.json';
+import jessicaMatthewsPhoto from '../assets/entrepreneurs/jessica-matthews.jpg.asset.json';
+import tristanWalkerPhoto from '../assets/entrepreneurs/tristan-walker.jpg.asset.json';
+import leilaJanahPhoto from '../assets/entrepreneurs/leila-janah.jpg.asset.json';
+import brianCheskyPhoto from '../assets/entrepreneurs/brian-chesky.jpg.asset.json';
+import arlanHamiltonPhoto from '../assets/entrepreneurs/arlan-hamilton.jpg.asset.json';
+import maiaChakaPhoto from '../assets/entrepreneurs/maia-chaka.jpg.asset.json';
+import tobiLutkePhoto from '../assets/entrepreneurs/tobi-lutke.jpg.asset.json';
+import katrinaLakePhoto from '../assets/entrepreneurs/katrina-lake.jpg.asset.json';
+import freddieFiggersPhoto from '../assets/entrepreneurs/freddie-figgers.jpg.asset.json';
+import comingSoonPhoto from '../assets/coming-soon.jpg.asset.json';
+import LaunchpadTextbook from './LaunchpadTextbook';
+import { useStudentAuth } from '@/hooks/useStudentAuth';
+import { useHubProgress } from '@/hooks/useHubProgress';
+import StudentProfileView from './StudentProfileView';
+import MasteryPortal from './MasteryPortal';
+import { useMastery } from '@/hooks/useMastery';
+import TeacherDashboard from './TeacherDashboard';
+import { useIsTeacher } from '@/hooks/useIsTeacher';
+import { useGlossary } from '@/hooks/useGlossary';
+import GlossaryView from './GlossaryView';
+import { StudentAccountModal } from './StudentAccountModal';
+import { ALL_LAUNCHPAD_SECTION_IDS } from '@/lib/launchpad-content';
+
+
+function GoogleClassroomLogo({ className = "w-8 h-8" }) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden="true">
+      <path fill="#FFC107" d="M6 8h36v32H6z" />
+      <path fill="#0F9D58" d="M10 12h28v24H10z" />
+      <circle cx="24" cy="21" r="5" fill="#FFFFFF" />
+      <path fill="#FFFFFF" d="M14 33c.5-5.2 4.2-8 10-8s9.5 2.8 10 8H14z" />
+      <path fill="#57BB8A" d="M11 35h26v3H11z" />
+    </svg>
+  );
+}
+
+function FigmaLogo({ className = "w-8 h-8" }) {
+  return (
+    <svg viewBox="0 0 38 57" className={className} aria-hidden="true">
+      <path fill="#F24E1E" d="M19 0H9.5a9.5 9.5 0 0 0 0 19H19V0z" />
+      <path fill="#FF7262" d="M19 0h9.5a9.5 9.5 0 1 1 0 19H19V0z" />
+      <path fill="#A259FF" d="M19 19H9.5a9.5 9.5 0 0 0 0 19H19V19z" />
+      <circle cx="28.5" cy="28.5" r="9.5" fill="#1ABCFE" />
+      <path fill="#0ACF83" d="M19 38H9.5a9.5 9.5 0 1 0 9.5 9.5V38z" />
+    </svg>
+  );
+}
+
+import canvaLogoAsset from "@/assets/canva-logo.jpeg.asset.json";
+
+function CanvaLogo({ className = "w-8 h-8" }) {
+  return (
+    <img
+      src={canvaLogoAsset.url}
+      alt="Canva"
+      className={className}
+      style={{ objectFit: "contain" }}
+    />
+  );
+}
+
+
+// Quote of the day — rotates daily (indexed by day of year)
+const DAILY_QUOTES = [
+  { text: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+  { text: "Opportunities don't happen. You create them.", author: "Chris Grosser" },
+  { text: "Success is not final; failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+  { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+  { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+  { text: "Don't be afraid to give up the good to go for the great.", author: "John D. Rockefeller" },
+  { text: "I have not failed. I've just found 10,000 ways that won't work.", author: "Thomas Edison" },
+  { text: "The biggest risk is not taking any risk.", author: "Mark Zuckerberg" },
+  { text: "Whether you think you can or you think you can't, you're right.", author: "Henry Ford" },
+  { text: "Every problem is a gift — without problems we would not grow.", author: "Tony Robbins" },
+  { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
+  { text: "Chase the vision, not the money; the money will end up following you.", author: "Tony Hsieh" },
+  { text: "Your most unhappy customers are your greatest source of learning.", author: "Bill Gates" },
+  { text: "It's fine to celebrate success, but it is more important to heed the lessons of failure.", author: "Bill Gates" },
+  { text: "If you really look closely, most overnight successes took a long time.", author: "Steve Jobs" },
+  { text: "The only place where success comes before work is in the dictionary.", author: "Vidal Sassoon" },
+  { text: "A goal without a plan is just a wish.", author: "Antoine de Saint-Exupéry" },
+  { text: "Fall seven times and stand up eight.", author: "Japanese Proverb" },
+  { text: "Everything you've ever wanted is on the other side of fear.", author: "George Addair" },
+  { text: "Ideas are easy. Implementation is hard.", author: "Guy Kawasaki" },
+  { text: "You miss 100% of the shots you don't take.", author: "Wayne Gretzky" },
+  { text: "Risk more than others think is safe. Dream more than others think is practical.", author: "Howard Schultz" },
+  { text: "If you're not embarrassed by the first version of your product, you've launched too late.", author: "Reid Hoffman" },
+  { text: "Make every detail perfect and limit the number of details to perfect.", author: "Jack Dorsey" },
+  { text: "The entrepreneur always searches for change, responds to it, and exploits it as an opportunity.", author: "Peter Drucker" },
+  { text: "Success usually comes to those who are too busy to be looking for it.", author: "Henry David Thoreau" },
+  { text: "Do one thing every day that scares you.", author: "Eleanor Roosevelt" },
+  { text: "The harder I work, the luckier I get.", author: "Samuel Goldwyn" },
+  { text: "What would you do if you weren't afraid?", author: "Sheryl Sandberg" },
+  { text: "Done is better than perfect.", author: "Sheryl Sandberg" },
+  { text: "Start where you are. Use what you have. Do what you can.", author: "Arthur Ashe" },
+];
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function getDayOfYear(date) {
+  return Math.floor((date - new Date(date.getFullYear(), 0, 0)) / DAY_MS);
+}
+
+function getDailyQuote(date) {
+  const dayOfYear = getDayOfYear(date);
+  return DAILY_QUOTES[dayOfYear % DAILY_QUOTES.length];
+}
+
+function formatQuoteDate(date) {
+  return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+// Live date/time clock + Marlborough, MA weather (Open-Meteo, no API key needed)
+function weatherCodeInfo(code) {
+  if (code === 0) return { label: 'Clear sky', Icon: Sun };
+  if (code === 1) return { label: 'Mostly clear', Icon: Sun };
+  if (code === 2) return { label: 'Partly cloudy', Icon: Cloudy };
+  if (code === 3) return { label: 'Overcast', Icon: Cloud };
+  if (code === 45 || code === 48) return { label: 'Foggy', Icon: CloudFog };
+  if ([51, 53, 55, 56, 57].includes(code)) return { label: 'Drizzle', Icon: CloudRain };
+  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { label: 'Rain', Icon: CloudRain };
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return { label: 'Snow', Icon: CloudSnow };
+  if ([95, 96, 99].includes(code)) return { label: 'Thunderstorms', Icon: CloudLightning };
+  return { label: 'Changing skies', Icon: Cloud };
+}
+
+function LiveDateTimeWeather({ highContrast }) {
+  const [now, setNow] = useState(null);
+  const [weather, setWeather] = useState(null);
+  const [showQuoteHistory, setShowQuoteHistory] = useState(false);
+  const [quoteCopied, setQuoteCopied] = useState(false);
+
+  useEffect(() => {
+    setNow(new Date());
+    const t = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(t);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const load = () => {
+      fetch('https://api.open-meteo.com/v1/forecast?latitude=42.3459&longitude=-71.5523&current=temperature_2m,weather_code,wind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph')
+        .then((r) => r.json())
+        .then((d) => { if (!cancelled && d && d.current) setWeather(d.current); })
+        .catch(() => {});
+    };
+    load();
+    const t = setInterval(load, 10 * 60 * 1000); // refresh every 10 minutes
+    return () => { cancelled = true; clearInterval(t); };
+  }, []);
+
+  const dayOfWeek = now ? now.toLocaleDateString('en-US', { weekday: 'long' }) : '';
+  const fullDate = now ? now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'Today';
+  const time = now ? now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' }) : '--:--:--';
+  const info = weather ? weatherCodeInfo(weather.weather_code) : null;
+  const WIcon = info ? info.Icon : Cloud;
+
+  const quote = now ? getDailyQuote(now) : DAILY_QUOTES[0];
+  const quoteHistory = now
+    ? [1, 2, 3].map((offset) => {
+        const date = new Date(now);
+        date.setDate(date.getDate() - offset);
+        return { date, quote: getDailyQuote(date) };
+      })
+    : [];
+
+  const copyQuote = async (item = quote) => {
+    const text = `“${item.text}” — ${item.author}`;
+    const copyWithTextarea = () => {
+      if (typeof document === 'undefined') return false;
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'absolute';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      const copied = document.execCommand('copy');
+      document.body.removeChild(textarea);
+      ret

@@ -1,0 +1,232 @@
+ub-nav text-hub-nav-foreground font-semibold border border-hub-nav-border hover:bg-hub-nav-hover'
+                }`}
+              >
+                <ExternalLink className="w-4 h-4" />
+                Open in Google Calendar
+              </a>
+            </div>
+            <div className={`rounded-2xl overflow-hidden shadow-lg border ${highContrast ? 'border-yellow-400 bg-zinc-900' : 'border-[#414042]/15 bg-white'}`}>
+              <iframe
+                title="MS Entrepreneurship Class Calendar"
+                src="https://calendar.google.com/calendar/embed?src=c_classroom7d094986%40group.calendar.google.com&ctz=America%2FNew_York"
+                style={{ border: 0 }}
+                width="100%"
+                height="600"
+                frameBorder="0"
+                scrolling="no"
+                className="w-full"
+              />
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'whiteboard' && (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <div>
+                <h2 className={`text-2xl font-bold flex items-center gap-2 ${highContrast ? 'text-yellow-300' : 'text-[#414042]'}`}>
+                  Class Whiteboard
+                </h2>
+                <p className={`mt-1 text-sm ${highContrast ? 'text-white' : 'text-[#414042]/70'}`}>
+                  Our shared MS Entrepreneurship Figma board — explore, comment, and collaborate live.
+                </p>
+              </div>
+              <a
+                href="https://www.figma.com/board/BMhyieAhM2wh7Yyo331rVJ/MS-ENTREPRENEURSHIP"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition ${
+                  highContrast
+                    ? 'bg-yellow-400 text-black font-extrabold border-2 border-white'
+                    : 'bg-hub-nav text-hub-nav-foreground font-semibold border border-hub-nav-border hover:bg-hub-nav-hover'
+                }`}
+              >
+                <ExternalLink className="w-4 h-4" />
+                Open in Figma
+              </a>
+            </div>
+            <div className="flex justify-center">
+              <iframe
+                title="MS Entrepreneurship Figma Whiteboard"
+                style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }}
+                className="w-full max-w-5xl rounded-xl shadow-lg"
+                height="700"
+                src="https://embed.figma.com/board/BMhyieAhM2wh7Yyo331rVJ/MS-ENTREPRENEURSHIP?node-id=0-1&embed-host=share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'casestudies' && <CaseStudiesPage highContrast={highContrast} />}
+        {activeTab === 'syllabus' && <SyllabusPage highContrast={highContrast} />}
+        {activeTab === 'assignments' && <AssignmentsPage highContrast={highContrast} onOpen={(tab) => setActiveTab(tab)} />}
+        {openAssignment && <AssignmentPage key={activeTab} entry={openAssignment} highContrast={highContrast} onNeedSignIn={openAccount} onEarnXp={earnAssignmentXp} onBack={() => setActiveTab('assignments')} />}
+        {activeTab.startsWith('lesson:') && !openAssignment && <p className={`text-sm ${highContrast ? 'text-yellow-200' : 'text-[#414042]/70'}`}>{allAssignments.loaded ? 'This lesson is no longer on the site.' : 'Loading lesson…'}</p>}
+        {activeTab === 'brainstarts' && (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <div>
+                <h2 className={`text-2xl font-bold flex items-center gap-2 ${highContrast ? 'text-yellow-300' : 'text-[#414042]'}`}>
+                  Brain Starts
+                </h2>
+                <p className={`mt-1 text-sm ${highContrast ? 'text-white' : 'text-[#414042]/70'}`}>
+                  Warm up your entrepreneur brain — start with the rebus picture puzzles, then try this week's crossword.
+                </p>
+
+              </div>
+              <a
+                href="https://ellieandray.my.canva.site/brain-start-ms-entrepreneurship-crossword"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition ${
+                  highContrast
+                    ? 'bg-yellow-400 text-black font-extrabold border-2 border-white'
+                    : 'bg-hub-nav text-hub-nav-foreground font-semibold border border-hub-nav-border hover:bg-hub-nav-hover'
+                }`}
+              >
+                <ExternalLink className="w-4 h-4" />
+                Open in Canva
+              </a>
+            </div>
+            <div className="flex justify-center">
+              <div className={`w-full max-w-2xl rounded-2xl p-8 text-center ${highContrast ? 'bg-zinc-900 border-2 border-yellow-400' : 'bg-white border border-[#414042]/15 shadow-lg'}`}>
+                <div className={`mx-auto mb-5 w-16 h-16 rounded-2xl flex items-center justify-center ${highContrast ? 'bg-yellow-400 text-black' : 'bg-[#EFA835]/15 text-[#E94928]'}`}>
+                  <Lightbulb className="w-8 h-8" />
+                </div>
+                <h3 className={`text-xl font-bold mb-2 ${highContrast ? 'text-yellow-300' : 'text-[#414042]'}`}>Brain Starts Rebus Puzzle</h3>
+                <p className={`text-sm mb-6 ${highContrast ? 'text-yellow-200' : 'text-[#414042]/70'}`}>
+                  Picture puzzles that spell out entrepreneurship words and phrases. Opens in a new tab on Canva.
+                </p>
+                <a
+                  href="https://ellieandray.my.canva.site/brain-start-rebus"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition ${
+                    highContrast
+                      ? 'bg-yellow-400 text-black font-extrabold border-2 border-white'
+                      : 'bg-[#E94928] text-white font-bold shadow-md shadow-[#E94928]/20 hover:bg-[#E94928]/90'
+                  }`}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Open the rebus puzzle
+                </a>
+              </div>
+            </div>
+            <div className="flex justify-center">
+
+              <div className={`w-full max-w-2xl rounded-2xl p-8 text-center ${highContrast ? 'bg-zinc-900 border-2 border-yellow-400' : 'bg-white border border-[#414042]/15 shadow-lg'}`}>
+                <div className={`mx-auto mb-5 w-16 h-16 rounded-2xl flex items-center justify-center ${highContrast ? 'bg-yellow-400 text-black' : 'bg-[#C51C63]/10 text-[#C51C63]'}`}>
+                  <Puzzle className="w-8 h-8" />
+                </div>
+                <h3 className={`text-xl font-bold mb-2 ${highContrast ? 'text-yellow-300' : 'text-[#414042]'}`}>Brain Starts Crossword</h3>
+                <p className={`text-sm mb-6 ${highContrast ? 'text-yellow-200' : 'text-[#414042]/70'}`}>
+                  This week's warm-up puzzle opens in a new tab on Canva. Solve the clues using the entrepreneurship terms you've been learning.
+                </p>
+                <a
+                  href="https://ellieandray.my.canva.site/brain-start-ms-entrepreneurship-crossword"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition ${
+                    highContrast
+                      ? 'bg-yellow-400 text-black font-extrabold border-2 border-white'
+                      : 'bg-hub-nav text-hub-nav-foreground font-semibold border border-hub-nav-border hover:bg-hub-nav-hover'
+                  }`}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Open the crossword
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'entryticket' && (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <div>
+                <h2 className={`text-2xl font-bold flex items-center gap-2 ${highContrast ? 'text-yellow-300' : 'text-[#414042]'}`}>
+                  Entry Ticket
+                </h2>
+                <p className={`mt-1 text-sm ${highContrast ? 'text-white' : 'text-[#414042]/70'}`}>
+                  Complete this entry ticket to kick off today's class — your responses help set the stage.
+                </p>
+              </div>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScTYZB2ok_ljADSXSKC8YkydIjnceC5k6X6k39DAOCuQN8TBQ/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition ${
+                  highContrast
+                    ? 'bg-yellow-400 text-black font-extrabold border-2 border-white'
+                    : 'bg-[#414042] text-white font-bold shadow-md shadow-[#414042]/20 hover:bg-[#414042]/90'
+                }`}
+              >
+                <ExternalLink className="w-4 h-4" />
+                Open in Google Forms
+              </a>
+            </div>
+            <div className={`rounded-2xl overflow-hidden shadow-lg border ${highContrast ? 'border-yellow-400 bg-zinc-900' : 'border-[#414042]/15 bg-white'}`}>
+              <iframe
+                title="MS Entrepreneurship Entry Ticket"
+                src="https://docs.google.com/forms/d/e/1FAIpQLScTYZB2ok_ljADSXSKC8YkydIjnceC5k6X6k39DAOCuQN8TBQ/viewform?embedded=true"
+                width="100%"
+                height="3613"
+                frameBorder="0"
+                marginHeight="0"
+                marginWidth="0"
+                className="w-full"
+              >
+                Loading…
+              </iframe>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'profile' && auth.user && (
+          <StudentProfileView
+            displayName={auth.displayName}
+            email={auth.user.email}
+            xp={xp}
+            masteredCount={masteredTerms.length}
+            totalTerms={glossary.terms.length}
+            scenariosCount={Object.keys(completedScenarios).length}
+            totalScenarios={PRACTICE_SCENARIOS.length}
+            sectionsDone={Object.values(auth.progress || {}).filter((entry) => entry?.completed).length}
+            totalSections={ALL_LAUNCHPAD_SECTION_IDS.length}
+            goals={goals}
+            setGoals={setGoals}
+            cloudSaving={hub.cloudSaving}
+            highContrast={highContrast}
+            setActiveTab={setActiveTab}
+            userId={auth.user.id}
+            completedSectionIds={Object.entries(auth.progress || {})
+              .filter(([, entry]) => entry?.completed)
+              .map(([id]) => id)}
+            sectionProgress={auth.progress || {}}
+            onOpenSection={(sectionId) => {
+              setTextbookTarget(sectionId);
+              setActiveTab('textbook');
+            }}
+          />
+        )}
+
+        {activeTab === 'teacher' && isTeacher && (
+          <TeacherDashboard onOpenTab={setActiveTab}
+            highContrast={highContrast}
+            totalScenarios={PRACTICE_SCENARIOS.length}
+            totalTerms={glossary.terms.length}
+          />
+        )}
+
+        {activeTab === 'textbook' && (
+
+          <LaunchpadTextbook
+            highContrast={highContrast}
+            speakText={speakText}
+            auth={auth}
+            onEarnXp={(amount) => setXp((current) => current + amount)}
+            targetSectionId={textbookTarget}
+            onSectionOpen={(sectionId) => mastery.setActiveNode(sectionId)}
+            onSectionComplete={(sectionId, hasEvidence) =>
+              mastery.awardXp
