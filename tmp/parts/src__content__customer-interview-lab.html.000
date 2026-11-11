@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" style="height: auto; --vh: 7.68px; overflow: visible; scrollbar-width: none; font-size: clamp(12px, 10.2241px + 0.4228vw, 16px);"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assumption to Evidence · Customer Interview Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#241c30; --purple:#61249a; --pink:#cc2474; --line:#dfd5e2; --paper:#fffdfb; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); font-family:"DM Sans",sans-serif; }
+    .display { font-family:"DM Sans",sans-serif; }
+    .page-width { width:min(100% - 2rem,1050px); margin-inline:auto; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.16em; font-size:.7rem; font-weight:800; }
+    .sheet { background:var(--paper); border:1px solid #e8dfe8; border-radius:5px; box-shadow:0 12px 35px rgba(36,28,48,.045); scroll-margin-top:20px; }
+    .section-number { font-size:.77rem; font-weight:800; letter-spacing:.12em; color:var(--pink); flex:none; padding-top:.4rem; }
+    .rule { height:2px; background:linear-gradient(90deg,var(--purple) 0 84px,#e9e1e9 84px); }
+    .response { display:block; width:100%; min-height:92px; resize:vertical; padding:12px 14px; border:1px solid var(--line); border-radius:4px; background:repeating-linear-gradient(to bottom,#fff 0,#fff 29px,#eee8ef 30px); color:var(--ink); line-height:30px; }
+    .response.short { min-height:58px; }
+    .field-label { display:block; margin-bottom:8px; font-weight:700; line-height:1.45; }
+    .reading p { margin:0 0 1rem; line-height:1.75; }
+    .plan-card { border:1px solid #eadff0; background:#fff; } .plan-heading { display:flex; align-items:center; gap:10px; padding:16px 16px 10px; } .calendar-badge { display:grid; place-items:center; width:25px; height:25px; border-radius:7px; background:#fff0e8; color:#ed5738; font-weight:800; } .route-table-wrap { overflow-x:auto; } .route-table { width:100%; border-collapse:separate; border-spacing:0; font-size:.78rem; } .route-table th { padding:9px 10px; text-align:left; color:#fff; background:#61249a; font-size:.72rem; } .route-table th:first-child { border-top-left-radius:8px; } .route-table th:last-child { border-top-right-radius:8px; } .route-table td { padding:9px 10px; border-bottom:1px solid #eadff0; } .route-table tbody tr:nth-child(even) td { background:#faf6fb; } .route-table tbody tr:last-child td { border-bottom:0; } .route-table td:nth-child(2), .route-table th:nth-child(2) { width:68px; } .route-timeline { display:none; }
+    .route-step { position:relative; min-width:0; padding-top:14px; border-top:2px solid #8d70a6; }
+    .route-step:not(:last-child)::after { content:""; position:absolute; top:-5px; right:-6px; width:8px; height:8px; border-radius:50%; background:#e994bb; }
