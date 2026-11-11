@@ -1,0 +1,32 @@
+p: border-box !important; white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(255, 255, 255) !important; --canva-color: #ffffffff; caret-color: rgb(255, 255, 255) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">Download my work</button> <button id="print" type="button" data-template-id="print-button" class="canva-button rounded px-5 py-3 font-bold bg-[#f5e9fa] text-[#61249a] hover:brightness-95" data-canva-font-size="1rem" style="background-image: linear-gradient(rgb(245, 233, 250), rgb(245, 233, 250)) !important; background-clip: border-box !important; white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(97, 36, 154) !important; --canva-color: #61249aff; caret-color: rgb(97, 36, 154) !important;  font-weight: 700 !important; font-style: normal !important; font-size: 1rem !important;">Print / Save as PDF</button>
+     <p id="action-message" role="status" aria-live="polite" class="text-sm text-[#61249a]"></p>
+    </div>
+   </section>
+  </main>
+  <footer class="page-width pb-10 pt-3 text-center text-sm">
+   <p data-template-id="footer-text" class="canva-text text-[#625c69]" data-canva-font-size="1rem" style="white-space: pre-wrap !important; overflow-wrap: normal !important; line-height: normal !important; color: rgb(98, 92, 105) !important; --canva-color: #625c69ff; caret-color: rgb(98, 92, 105) !important;  font-weight: 400 !important; font-style: normal !important; font-size: 1rem !important;">ASK · LISTEN · DECIDE / Customer Interview Lab</p>
+  </footer>
+  <script>
+    document.getElementById('download').addEventListener('click', () => {
+      const lines = ['ASSUMPTION TO EVIDENCE — CUSTOMER INTERVIEW LAB', 'Thursday, October 22, 2026', ''];
+      document.querySelectorAll('[data-export-label]').forEach(field => {
+        lines.push(field.dataset.exportLabel, field.value.trim() || '[Not answered]', '');
+      });
+      ['status', 'decision'].forEach(name => {
+        const selected = document.querySelector(`input[name="${name}"]:checked`);
+        lines.push(name === 'status' ? 'Assumption status' : 'Next decision', selected ? selected.value : '[Not selected]', '');
+      });
+      const url = URL.createObjectURL(new Blob([lines.join('\n')], {type:'text/plain;charset=utf-8'}));
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'customer-interview-lab.txt';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      document.getElementById('action-message').textContent = 'Your work is ready to download.';
+    });
+    document.getElementById('print').addEventListener('click', () => window.print());
+  </script>
+ 
+<canva-element-overlay style="position: fixed; z-index: 2147483647; pointer-events: none;"></canva-element-overlay></body></html>
